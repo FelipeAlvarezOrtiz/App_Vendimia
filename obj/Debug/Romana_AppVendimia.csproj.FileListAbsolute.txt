@@ -1,0 +1,12 @@
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\Romana_AppVendimia.exe.config
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\Romana_AppVendimia.exe
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\Romana_AppVendimia.pdb
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csprojAssemblyReference.cache
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Vista_Cooperado.resources
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Properties.Resources.resources
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csproj.GenerateResource.cache
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.exe
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.pdb
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csproj.CopyComplete
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Trabajador_Vista.resources
