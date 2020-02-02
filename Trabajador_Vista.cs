@@ -13,10 +13,11 @@ namespace Romana_AppVendimia
     public partial class Trabajador_Vista : Form
     {
         public readonly Screen[] screens = Screen.AllScreens;
-        public Vista_Cooperado cooperado = new Vista_Cooperado();
+        public Vista_Cooperado Cooperado = new Vista_Cooperado();
         public Trabajador_Vista()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         private void Load_Refracto(object sender, EventArgs e)
@@ -27,12 +28,12 @@ namespace Romana_AppVendimia
         void Setting_Monitores()
         {
             Rectangle bounds = screens[1].Bounds;
-            cooperado.SetBounds(bounds.X,bounds.Y,1200,1200);
-            cooperado.StartPosition = FormStartPosition.Manual;
-            cooperado.Show();
+            Cooperado.SetBounds(bounds.X,bounds.Y,1200,1200);
+            Cooperado.StartPosition = FormStartPosition.Manual;
+            Cooperado.Show();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            cooperado.WindowState = FormWindowState.Maximized;
+            Cooperado.WindowState = FormWindowState.Maximized;
             WindowState = FormWindowState.Maximized;
 
         }
