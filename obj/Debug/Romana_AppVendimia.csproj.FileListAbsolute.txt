@@ -10,3 +10,15 @@ C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_Ap
 C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\Bunifu_UI_v1.5.3.dll
 C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csproj.CopyComplete
 C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Trabajador_Vista.resources
+D:\Proyecto .NET\bin\Debug\Romana_AppVendimia.exe.config
+D:\Proyecto .NET\bin\Debug\Romana_AppVendimia.exe
+D:\Proyecto .NET\bin\Debug\Romana_AppVendimia.pdb
+D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.csprojAssemblyReference.cache
+D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.Vista_Cooperado.resources
+D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.Properties.Resources.resources
+D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.Trabajador_Vista.resources
+D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.csproj.GenerateResource.cache
+D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.csproj.CoreCompileInputs.cache
+D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.csproj.CopyComplete
+D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.exe
+D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.pdb

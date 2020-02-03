@@ -15,6 +15,7 @@ namespace Romana_AppVendimia
         public Vista_Cooperado()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
     }
 }

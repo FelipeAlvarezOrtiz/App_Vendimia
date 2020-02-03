@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trabajador_Vista));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -496,29 +496,30 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel MainLayout;
-        private System.Windows.Forms.Label TittleLabel;
-        private System.Windows.Forms.TableLayoutPanel EstadoLayout;
-        private System.Windows.Forms.Label EstadoLabel;
-        private System.Windows.Forms.Label EstadoText;
-        private System.Windows.Forms.TableLayoutPanel SecondLayout;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label LecturaText;
-        private System.Windows.Forms.Label TicketText;
-        private System.Windows.Forms.Label TicketLabel;
-        private System.Windows.Forms.TableLayoutPanel BotonesLayout;
-        private Bunifu.Framework.UI.BunifuThinButton2 IniciarButton;
-        private Bunifu.Framework.UI.BunifuThinButton2 MedicionButton;
-        private Bunifu.Framework.UI.BunifuThinButton2 RepetirButton;
-        private Bunifu.Framework.UI.BunifuThinButton2 CapturarButton;
-        private System.Windows.Forms.TableLayoutPanel BottomLayout;
-        private System.Windows.Forms.DataGridView DataGridInfo;
-        private System.Windows.Forms.TableLayoutPanel GuardarLayout;
-        private Bunifu.Framework.UI.BunifuThinButton2 GuardarButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lectura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Grado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Temperatura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Volumen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        public System.Windows.Forms.TableLayoutPanel MainLayout;
+        public System.Windows.Forms.Label TittleLabel;
+        public System.Windows.Forms.TableLayoutPanel EstadoLayout;
+        public System.Windows.Forms.Label EstadoLabel;
+        public System.Windows.Forms.Label EstadoText;
+        public System.Windows.Forms.TableLayoutPanel SecondLayout;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label LecturaText;
+        public System.Windows.Forms.Label TicketText;
+        public System.Windows.Forms.Label TicketLabel;
+        public System.Windows.Forms.TableLayoutPanel BotonesLayout;
+        public Bunifu.Framework.UI.BunifuThinButton2 IniciarButton;
+        public Bunifu.Framework.UI.BunifuThinButton2 MedicionButton;
+        public Bunifu.Framework.UI.BunifuThinButton2 RepetirButton;
+        public Bunifu.Framework.UI.BunifuThinButton2 CapturarButton;
+        public System.Windows.Forms.TableLayoutPanel BottomLayout;
+        public System.Windows.Forms.DataGridView DataGridInfo;
+        public System.Windows.Forms.TableLayoutPanel GuardarLayout;
+        public Bunifu.Framework.UI.BunifuThinButton2 GuardarButton;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Lectura;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Grado;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Temperatura;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Volumen;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
+
 }
