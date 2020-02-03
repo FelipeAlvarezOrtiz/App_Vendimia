@@ -24,7 +24,7 @@ namespace Romana_AppVendimia.Modelo
         private readonly string PathParaMonitoreo = @"C:/ROMANA/REFRACTO/";
         private readonly string PathLog = @"C:/ROMANA/REFRACTO/LOG/log.txt";
         private readonly FileSystemWatcher _observador = new FileSystemWatcher();
-        private EstadoPLC estadoActual = EstadoPLC.Z;
+        public EstadoPLC estadoActual = EstadoPLC.Z;
         public int Intentos_Session = 0;
         public List<string> DataMediciones = new List<string>();
 
@@ -132,7 +132,7 @@ namespace Romana_AppVendimia.Modelo
             File.AppendAllLines(PathLog,NuevaLinea);
         }
 
-        private char LeerPrimerChar_Archivo(string Path)
+        public char LeerPrimerChar_Archivo(string Path)
         {
             try
             {

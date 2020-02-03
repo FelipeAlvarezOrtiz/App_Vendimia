@@ -59,7 +59,7 @@ namespace Romana_AppVendimia.Modelo
         {
             try
             {
-                using (var conexion = new SQLiteConnection("DataSource=" + FullPathDB + ";Version=3"))
+                using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
                 using (var command = new SQLiteCommand("INSERT INTO ", conexion))
                 {
                     conexion.Open();
@@ -74,5 +74,33 @@ namespace Romana_AppVendimia.Modelo
             }
         }
 
+        public static bool DebeEjecutarse()
+        {
+            using(var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
+            using (var command = new SQLiteCommand("Select Estado from Estado_App where Estado = 1;", conexion))
+            {
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+                    var count = Convert.ToInt32(command.ExecuteScalar());
+                    if (count > 0)
+                    {
+                        conexion.Close();
+                        return true;
+                    }
+                    else
+                    {
+                        conexion.Close();
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    EscribirEnLog("Error al intentar consultar en Base de Datos Local.");
+                    return false;
+                }
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Romana_AppVendimia.Modelo
     public static class OracleManager
     {
         private readonly static string ConexionString = "";
-
+        private readonly static string PathLog = @"C:/ROMANA/REFRACTO/LOG/log.txt";
 
         public static void SetConfiguracionDePuerto(int ID_Planta, int TipoProceso)
         {
