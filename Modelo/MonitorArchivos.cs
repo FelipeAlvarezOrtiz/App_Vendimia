@@ -21,8 +21,9 @@ namespace Romana_AppVendimia.Modelo
     {
         private readonly Vista_Cooperado _cooperado;
         private readonly Trabajador_Vista _trabajador;
-        private readonly string PathParaMonitoreo = @"C:/ROMANA/REFRACTO/";
+        private readonly string PathParaMonitoreo = @"C:/ROMANA/REFRACTO";
         private readonly string PathLog = @"C:/ROMANA/REFRACTO/LOG/log.txt";
+        private readonly string PathConfig = @"C:/ROMANA/config.txt";
         private readonly FileSystemWatcher _observador = new FileSystemWatcher();
         public EstadoPLC estadoActual = EstadoPLC.Z;
         public int Intentos_Session = 0;
@@ -33,7 +34,6 @@ namespace Romana_AppVendimia.Modelo
             _cooperado = _cooperadoVista;
             _trabajador = _trabajadorVista;
             ConfigurarFileWatcher();
-
         }
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
@@ -58,7 +58,7 @@ namespace Romana_AppVendimia.Modelo
 
         private void OnChanged(object source, FileSystemEventArgs _event)
         {
-            if (string.Compare(Path.GetFileName(_event.FullPath),"RECEPCION.TXT") == 0)
+            if (string.Compare(Path.GetFileName(_event.FullPath),"RECEPCION.txt") == 0)
             {
                 _trabajador.IniciarButton.Enabled = false;
                 char _estadoPLC = LeerPrimerChar_Archivo(_event.FullPath);
@@ -125,6 +125,12 @@ namespace Romana_AppVendimia.Modelo
         {
 
         }
+        
+        public void Stop()
+        {
+            _observador.EnableRaisingEvents = false;
+            _observador.Dispose();
+        }
 
         private void EscribirEnLog(string Texto)
         {
@@ -152,22 +158,46 @@ namespace Romana_AppVendimia.Modelo
             EscribirEnLog("Monitor de Archivos activado.");
         }
 
-        public void LeerArchivoMediciones(string Path)
+        public void EscribirPalabra_Archivo(char Comando, string Path)
+        {
+            if (File.Exists(Path))
+            {
+                File.WriteAllLines(Path, new string[] { new string(new char[] { Comando})});
+            }
+            else
+            {
+                EscribirEnLog("Error la ruta "+Path+" no existe.");
+            }
+        }
+
+        public void LeerArchivoMediciones(string Path,Session _sessionActual)
         {
             try
             {
                 DataMediciones.Clear();
                 Intentos_Session++;
                 var Data = File.ReadAllText(Path).Split(';');
-                _cooperado.TemperaturaText.Text = Data[1];
-                _cooperado.VolumenText.Text = Data[2];
-                _cooperado.TicketText.Text = Intentos_Session.ToString();
-                //Falta Ticket
 
+                //Falta Ticket
+                /*
                 DataMediciones.Add(Data[1]);
                 DataMediciones.Add(Data[2]);
                 DataMediciones.Add(ObtenerTipoProcedimiento((int)Convert.ToInt32(Data[3])));
-                DataMediciones.Add(Intentos_Session.ToString());
+                DataMediciones.Add(Intentos_Session.ToString());*/
+                _sessionActual.Volumen = Convert.ToDecimal(Data[1].Replace(".",","));
+                _sessionActual.Temperatura = (Decimal)Convert.ToDecimal(Data[2].Replace(".",","));
+                _sessionActual.Operacion = ObtenerTipoProcedimiento(Convert.ToInt32(Data[3]));
+                //Este grado debe eliminarse para reemplazar el real.
+                _sessionActual.Grado = Convert.ToDecimal(Data[0].Replace(".",","));
+                //_sessionActual.Grado = 
+                _sessionActual.Intento = Intentos_Session;
+                _cooperado.TemperaturaText.Text = _sessionActual.Temperatura.ToString();
+                _cooperado.GradoText.Text = _sessionActual.Grado.ToString();
+                _cooperado.VolumenText.Text = _sessionActual.Volumen.ToString();
+                _cooperado.TicketText.Text = _sessionActual.Id_Ticket.ToString();
+                _cooperado.LecturaText.Text = _sessionActual.Intento.ToString();
+
+                
 
             }
             catch (Exception e)
@@ -187,6 +217,22 @@ namespace Romana_AppVendimia.Modelo
                 return "Manual";
             }
         }
+    
+        public void InsertarProceso_Planta(Session _sessionActual)
+        {
+            if (File.Exists(PathConfig))
+            {
+                //Primer dato es la Planta, segundo el proceso
+                var data = File.ReadAllText(PathConfig).Split(';');
+                _sessionActual.Id_Planta = Convert.ToInt32(data[0]);
+                _sessionActual.Tipo_Proceso = Convert.ToInt32(data[1]);
+            }
+            else
+            {
+                EscribirEnLog("Error al leer el archivo de configuración.");
+            }
+        }
+
     }
 
 }

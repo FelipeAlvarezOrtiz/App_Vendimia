@@ -68,6 +68,7 @@
     <Compile Include="Modelo\MonitorArchivos.cs" />
     <Compile Include="Modelo\OracleManager.cs" />
     <Compile Include="Modelo\ScreenManager.cs" />
+    <Compile Include="Modelo\SerialPortManager.cs" />
     <Compile Include="Modelo\Session.cs" />
     <Compile Include="Modelo\SQliteManager.cs" />
     <Compile Include="Program.cs" />

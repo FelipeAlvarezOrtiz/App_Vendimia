@@ -22,3 +22,7 @@ D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.csproj.CoreCompileInputs.cache
 D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.csproj.CopyComplete
 D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.exe
 D:\Proyecto .NET\obj\Debug\Romana_AppVendimia.pdb
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\System.Data.SQLite.dll
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\System.Data.SQLite.xml
+C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\System.Data.SQLite.dll.config

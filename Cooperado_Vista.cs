@@ -17,5 +17,16 @@ namespace Romana_AppVendimia
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
         }
+
+        private void LoadForm(object sender, EventArgs e)
+        {
+            FechaText.Text = DateTime.Now.ToString("dd-MM-yyyy");
+            HoraText.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void TickEvent(object sender, EventArgs e)
+        {
+            HoraText.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
     }
 }

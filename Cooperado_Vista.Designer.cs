@@ -28,66 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vista_Cooperado));
             this.TopPanel = new System.Windows.Forms.Panel();
             this.layoutTop = new System.Windows.Forms.TableLayoutPanel();
             this.TopLeftPanel = new System.Windows.Forms.Panel();
-            this.TopRightPanel = new System.Windows.Forms.Panel();
             this.NombreLayout = new System.Windows.Forms.TableLayoutPanel();
             this.CooperadoINFO = new System.Windows.Forms.Label();
+            this.TopRightPanel = new System.Windows.Forms.Panel();
             this.LeftLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.RutInfo = new System.Windows.Forms.Label();
             this.PlantaINFO = new System.Windows.Forms.Label();
+            this.RutInfo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.VolumenCard = new Bunifu.Framework.UI.BunifuCards();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.VolumenLabel = new System.Windows.Forms.Label();
+            this.VolumenText = new System.Windows.Forms.Label();
+            this.TemperaturaCard = new Bunifu.Framework.UI.BunifuCards();
+            this.TemperaturaLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.TemperaturaLabel = new System.Windows.Forms.Label();
+            this.TemperaturaText = new System.Windows.Forms.Label();
+            this.LecturaCard = new Bunifu.Framework.UI.BunifuCards();
+            this.LecturaLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.LecturaLabel = new System.Windows.Forms.Label();
+            this.LecturaText = new System.Windows.Forms.Label();
+            this.TicketCard = new Bunifu.Framework.UI.BunifuCards();
+            this.TicketLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.TicketLabel = new System.Windows.Forms.Label();
+            this.TicketText = new System.Windows.Forms.Label();
             this.MiddlePanel = new System.Windows.Forms.Panel();
             this.MiddleSeparator = new Bunifu.Framework.UI.BunifuSeparator();
             this.LeftPanel = new System.Windows.Forms.Panel();
             this.LeftSeparatorPanel = new System.Windows.Forms.Panel();
             this.SeparadorMid = new Bunifu.Framework.UI.BunifuSeparator();
-            this.TicketCard = new Bunifu.Framework.UI.BunifuCards();
-            this.LecturaCard = new Bunifu.Framework.UI.BunifuCards();
-            this.TemperaturaCard = new Bunifu.Framework.UI.BunifuCards();
-            this.VolumenCard = new Bunifu.Framework.UI.BunifuCards();
-            this.TicketLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.TicketLabel = new System.Windows.Forms.Label();
-            this.TicketText = new System.Windows.Forms.Label();
-            this.LecturaLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.LecturaLabel = new System.Windows.Forms.Label();
-            this.LecturaText = new System.Windows.Forms.Label();
-            this.TemperaturaLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.TemperaturaLabel = new System.Windows.Forms.Label();
-            this.TemperaturaText = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.VolumenLabel = new System.Windows.Forms.Label();
-            this.VolumenText = new System.Windows.Forms.Label();
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.BottomLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.FechaText = new System.Windows.Forms.Label();
             this.HoraText = new System.Windows.Forms.Label();
+            this.FechaText = new System.Windows.Forms.Label();
             this.SeparadorPanel = new System.Windows.Forms.Panel();
             this.SeparatorBottom = new Bunifu.Framework.UI.BunifuSeparator();
             this.LayoutMid = new System.Windows.Forms.TableLayoutPanel();
+            this.GradoText = new System.Windows.Forms.Label();
             this.GradoCard = new Bunifu.Framework.UI.BunifuCards();
             this.GradoLabel = new System.Windows.Forms.Label();
-            this.GradoText = new System.Windows.Forms.Label();
+            this.TimerHora = new System.Windows.Forms.Timer(this.components);
             this.TopPanel.SuspendLayout();
             this.layoutTop.SuspendLayout();
             this.TopLeftPanel.SuspendLayout();
-            this.TopRightPanel.SuspendLayout();
             this.NombreLayout.SuspendLayout();
+            this.TopRightPanel.SuspendLayout();
             this.LeftLayout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.VolumenCard.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.TemperaturaCard.SuspendLayout();
+            this.TemperaturaLayout.SuspendLayout();
+            this.LecturaCard.SuspendLayout();
+            this.LecturaLayout.SuspendLayout();
+            this.TicketCard.SuspendLayout();
+            this.TicketLayout.SuspendLayout();
             this.MiddlePanel.SuspendLayout();
             this.LeftPanel.SuspendLayout();
             this.LeftSeparatorPanel.SuspendLayout();
-            this.TicketCard.SuspendLayout();
-            this.LecturaCard.SuspendLayout();
-            this.TemperaturaCard.SuspendLayout();
-            this.VolumenCard.SuspendLayout();
-            this.TicketLayout.SuspendLayout();
-            this.LecturaLayout.SuspendLayout();
-            this.TemperaturaLayout.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.BottomLayout.SuspendLayout();
             this.SeparadorPanel.SuspendLayout();
@@ -128,15 +130,6 @@
             this.TopLeftPanel.Size = new System.Drawing.Size(712, 102);
             this.TopLeftPanel.TabIndex = 0;
             // 
-            // TopRightPanel
-            // 
-            this.TopRightPanel.Controls.Add(this.LeftLayout);
-            this.TopRightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TopRightPanel.Location = new System.Drawing.Point(721, 3);
-            this.TopRightPanel.Name = "TopRightPanel";
-            this.TopRightPanel.Size = new System.Drawing.Size(594, 102);
-            this.TopRightPanel.TabIndex = 1;
-            // 
             // NombreLayout
             // 
             this.NombreLayout.ColumnCount = 1;
@@ -166,6 +159,15 @@
             this.CooperadoINFO.Text = "Cooperado: No hay Información";
             this.CooperadoINFO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // TopRightPanel
+            // 
+            this.TopRightPanel.Controls.Add(this.LeftLayout);
+            this.TopRightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TopRightPanel.Location = new System.Drawing.Point(721, 3);
+            this.TopRightPanel.Name = "TopRightPanel";
+            this.TopRightPanel.Size = new System.Drawing.Size(594, 102);
+            this.TopRightPanel.TabIndex = 1;
+            // 
             // LeftLayout
             // 
             this.LeftLayout.ColumnCount = 1;
@@ -182,20 +184,6 @@
             this.LeftLayout.Size = new System.Drawing.Size(594, 102);
             this.LeftLayout.TabIndex = 0;
             // 
-            // RutInfo
-            // 
-            this.RutInfo.AutoSize = true;
-            this.RutInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RutInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RutInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.RutInfo.Location = new System.Drawing.Point(3, 0);
-            this.RutInfo.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.RutInfo.Name = "RutInfo";
-            this.RutInfo.Size = new System.Drawing.Size(576, 51);
-            this.RutInfo.TabIndex = 1;
-            this.RutInfo.Text = "RUT: No Hay Información";
-            this.RutInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // PlantaINFO
             // 
             this.PlantaINFO.AutoSize = true;
@@ -209,6 +197,20 @@
             this.PlantaINFO.TabIndex = 2;
             this.PlantaINFO.Text = "Planta: No Hay Información";
             this.PlantaINFO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // RutInfo
+            // 
+            this.RutInfo.AutoSize = true;
+            this.RutInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RutInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RutInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.RutInfo.Location = new System.Drawing.Point(3, 0);
+            this.RutInfo.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.RutInfo.Name = "RutInfo";
+            this.RutInfo.Size = new System.Drawing.Size(576, 51);
+            this.RutInfo.TabIndex = 1;
+            this.RutInfo.Text = "RUT: No Hay Información";
+            this.RutInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel1
             // 
@@ -229,6 +231,235 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(341, 625);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // VolumenCard
+            // 
+            this.VolumenCard.BackColor = System.Drawing.Color.White;
+            this.VolumenCard.BorderRadius = 5;
+            this.VolumenCard.BottomSahddow = true;
+            this.VolumenCard.color = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.VolumenCard.Controls.Add(this.tableLayoutPanel2);
+            this.VolumenCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VolumenCard.LeftSahddow = false;
+            this.VolumenCard.Location = new System.Drawing.Point(3, 471);
+            this.VolumenCard.Name = "VolumenCard";
+            this.VolumenCard.RightSahddow = true;
+            this.VolumenCard.ShadowDepth = 20;
+            this.VolumenCard.Size = new System.Drawing.Size(335, 151);
+            this.VolumenCard.TabIndex = 3;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.VolumenLabel, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.VolumenText, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(335, 151);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // VolumenLabel
+            // 
+            this.VolumenLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.VolumenLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VolumenLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VolumenLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
+            this.VolumenLabel.Location = new System.Drawing.Point(10, 10);
+            this.VolumenLabel.Margin = new System.Windows.Forms.Padding(10);
+            this.VolumenLabel.Name = "VolumenLabel";
+            this.VolumenLabel.Size = new System.Drawing.Size(315, 55);
+            this.VolumenLabel.TabIndex = 0;
+            this.VolumenLabel.Text = "Volumen";
+            this.VolumenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // VolumenText
+            // 
+            this.VolumenText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VolumenText.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VolumenText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
+            this.VolumenText.Location = new System.Drawing.Point(3, 75);
+            this.VolumenText.Name = "VolumenText";
+            this.VolumenText.Size = new System.Drawing.Size(329, 76);
+            this.VolumenText.TabIndex = 1;
+            this.VolumenText.Text = "0.0";
+            this.VolumenText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TemperaturaCard
+            // 
+            this.TemperaturaCard.BackColor = System.Drawing.Color.White;
+            this.TemperaturaCard.BorderRadius = 5;
+            this.TemperaturaCard.BottomSahddow = true;
+            this.TemperaturaCard.color = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.TemperaturaCard.Controls.Add(this.TemperaturaLayout);
+            this.TemperaturaCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TemperaturaCard.LeftSahddow = false;
+            this.TemperaturaCard.Location = new System.Drawing.Point(3, 315);
+            this.TemperaturaCard.Name = "TemperaturaCard";
+            this.TemperaturaCard.RightSahddow = true;
+            this.TemperaturaCard.ShadowDepth = 20;
+            this.TemperaturaCard.Size = new System.Drawing.Size(335, 150);
+            this.TemperaturaCard.TabIndex = 2;
+            // 
+            // TemperaturaLayout
+            // 
+            this.TemperaturaLayout.ColumnCount = 1;
+            this.TemperaturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TemperaturaLayout.Controls.Add(this.TemperaturaLabel, 0, 0);
+            this.TemperaturaLayout.Controls.Add(this.TemperaturaText, 0, 1);
+            this.TemperaturaLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TemperaturaLayout.Location = new System.Drawing.Point(0, 0);
+            this.TemperaturaLayout.Name = "TemperaturaLayout";
+            this.TemperaturaLayout.RowCount = 2;
+            this.TemperaturaLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TemperaturaLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TemperaturaLayout.Size = new System.Drawing.Size(335, 150);
+            this.TemperaturaLayout.TabIndex = 3;
+            // 
+            // TemperaturaLabel
+            // 
+            this.TemperaturaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.TemperaturaLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TemperaturaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TemperaturaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
+            this.TemperaturaLabel.Location = new System.Drawing.Point(10, 10);
+            this.TemperaturaLabel.Margin = new System.Windows.Forms.Padding(10);
+            this.TemperaturaLabel.Name = "TemperaturaLabel";
+            this.TemperaturaLabel.Size = new System.Drawing.Size(315, 55);
+            this.TemperaturaLabel.TabIndex = 0;
+            this.TemperaturaLabel.Text = "Temperatura";
+            this.TemperaturaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TemperaturaText
+            // 
+            this.TemperaturaText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TemperaturaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TemperaturaText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
+            this.TemperaturaText.Location = new System.Drawing.Point(3, 75);
+            this.TemperaturaText.Name = "TemperaturaText";
+            this.TemperaturaText.Size = new System.Drawing.Size(329, 75);
+            this.TemperaturaText.TabIndex = 1;
+            this.TemperaturaText.Text = "0.0";
+            this.TemperaturaText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LecturaCard
+            // 
+            this.LecturaCard.BackColor = System.Drawing.Color.White;
+            this.LecturaCard.BorderRadius = 5;
+            this.LecturaCard.BottomSahddow = true;
+            this.LecturaCard.color = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.LecturaCard.Controls.Add(this.LecturaLayout);
+            this.LecturaCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LecturaCard.LeftSahddow = false;
+            this.LecturaCard.Location = new System.Drawing.Point(3, 159);
+            this.LecturaCard.Name = "LecturaCard";
+            this.LecturaCard.RightSahddow = true;
+            this.LecturaCard.ShadowDepth = 20;
+            this.LecturaCard.Size = new System.Drawing.Size(335, 150);
+            this.LecturaCard.TabIndex = 1;
+            // 
+            // LecturaLayout
+            // 
+            this.LecturaLayout.ColumnCount = 1;
+            this.LecturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.LecturaLayout.Controls.Add(this.LecturaLabel, 0, 0);
+            this.LecturaLayout.Controls.Add(this.LecturaText, 0, 1);
+            this.LecturaLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LecturaLayout.Location = new System.Drawing.Point(0, 0);
+            this.LecturaLayout.Name = "LecturaLayout";
+            this.LecturaLayout.RowCount = 2;
+            this.LecturaLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.LecturaLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.LecturaLayout.Size = new System.Drawing.Size(335, 150);
+            this.LecturaLayout.TabIndex = 2;
+            // 
+            // LecturaLabel
+            // 
+            this.LecturaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.LecturaLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LecturaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LecturaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
+            this.LecturaLabel.Location = new System.Drawing.Point(10, 10);
+            this.LecturaLabel.Margin = new System.Windows.Forms.Padding(10);
+            this.LecturaLabel.Name = "LecturaLabel";
+            this.LecturaLabel.Size = new System.Drawing.Size(315, 55);
+            this.LecturaLabel.TabIndex = 0;
+            this.LecturaLabel.Text = "Lectura";
+            this.LecturaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LecturaText
+            // 
+            this.LecturaText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LecturaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LecturaText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
+            this.LecturaText.Location = new System.Drawing.Point(3, 75);
+            this.LecturaText.Name = "LecturaText";
+            this.LecturaText.Size = new System.Drawing.Size(329, 75);
+            this.LecturaText.TabIndex = 1;
+            this.LecturaText.Text = "0";
+            this.LecturaText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TicketCard
+            // 
+            this.TicketCard.BackColor = System.Drawing.Color.White;
+            this.TicketCard.BorderRadius = 5;
+            this.TicketCard.BottomSahddow = true;
+            this.TicketCard.color = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.TicketCard.Controls.Add(this.TicketLayout);
+            this.TicketCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TicketCard.LeftSahddow = false;
+            this.TicketCard.Location = new System.Drawing.Point(3, 3);
+            this.TicketCard.Name = "TicketCard";
+            this.TicketCard.RightSahddow = true;
+            this.TicketCard.ShadowDepth = 20;
+            this.TicketCard.Size = new System.Drawing.Size(335, 150);
+            this.TicketCard.TabIndex = 0;
+            // 
+            // TicketLayout
+            // 
+            this.TicketLayout.ColumnCount = 1;
+            this.TicketLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TicketLayout.Controls.Add(this.TicketLabel, 0, 0);
+            this.TicketLayout.Controls.Add(this.TicketText, 0, 1);
+            this.TicketLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TicketLayout.Location = new System.Drawing.Point(0, 0);
+            this.TicketLayout.Name = "TicketLayout";
+            this.TicketLayout.RowCount = 2;
+            this.TicketLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TicketLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TicketLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TicketLayout.Size = new System.Drawing.Size(335, 150);
+            this.TicketLayout.TabIndex = 1;
+            // 
+            // TicketLabel
+            // 
+            this.TicketLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.TicketLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TicketLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TicketLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
+            this.TicketLabel.Location = new System.Drawing.Point(10, 10);
+            this.TicketLabel.Margin = new System.Windows.Forms.Padding(10);
+            this.TicketLabel.Name = "TicketLabel";
+            this.TicketLabel.Size = new System.Drawing.Size(315, 55);
+            this.TicketLabel.TabIndex = 0;
+            this.TicketLabel.Text = "Ticket";
+            this.TicketLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TicketText
+            // 
+            this.TicketText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TicketText.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TicketText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
+            this.TicketText.Location = new System.Drawing.Point(3, 75);
+            this.TicketText.Name = "TicketText";
+            this.TicketText.Size = new System.Drawing.Size(329, 75);
+            this.TicketText.TabIndex = 1;
+            this.TicketText.Text = "0";
+            this.TicketText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MiddlePanel
             // 
             this.MiddlePanel.Controls.Add(this.MiddleSeparator);
@@ -242,7 +473,7 @@
             // 
             this.MiddleSeparator.BackColor = System.Drawing.Color.Transparent;
             this.MiddleSeparator.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MiddleSeparator.LineColor = System.Drawing.Color.DimGray;
+            this.MiddleSeparator.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.MiddleSeparator.LineThickness = 3;
             this.MiddleSeparator.Location = new System.Drawing.Point(0, 0);
             this.MiddleSeparator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -274,7 +505,7 @@
             // 
             this.SeparadorMid.BackColor = System.Drawing.Color.Transparent;
             this.SeparadorMid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SeparadorMid.LineColor = System.Drawing.Color.DimGray;
+            this.SeparadorMid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.SeparadorMid.LineThickness = 3;
             this.SeparadorMid.Location = new System.Drawing.Point(0, 0);
             this.SeparadorMid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -283,235 +514,6 @@
             this.SeparadorMid.TabIndex = 0;
             this.SeparadorMid.Transparency = 255;
             this.SeparadorMid.Vertical = true;
-            // 
-            // TicketCard
-            // 
-            this.TicketCard.BackColor = System.Drawing.Color.White;
-            this.TicketCard.BorderRadius = 5;
-            this.TicketCard.BottomSahddow = true;
-            this.TicketCard.color = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.TicketCard.Controls.Add(this.TicketLayout);
-            this.TicketCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TicketCard.LeftSahddow = false;
-            this.TicketCard.Location = new System.Drawing.Point(3, 3);
-            this.TicketCard.Name = "TicketCard";
-            this.TicketCard.RightSahddow = true;
-            this.TicketCard.ShadowDepth = 20;
-            this.TicketCard.Size = new System.Drawing.Size(335, 150);
-            this.TicketCard.TabIndex = 0;
-            // 
-            // LecturaCard
-            // 
-            this.LecturaCard.BackColor = System.Drawing.Color.White;
-            this.LecturaCard.BorderRadius = 5;
-            this.LecturaCard.BottomSahddow = true;
-            this.LecturaCard.color = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.LecturaCard.Controls.Add(this.LecturaLayout);
-            this.LecturaCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LecturaCard.LeftSahddow = false;
-            this.LecturaCard.Location = new System.Drawing.Point(3, 159);
-            this.LecturaCard.Name = "LecturaCard";
-            this.LecturaCard.RightSahddow = true;
-            this.LecturaCard.ShadowDepth = 20;
-            this.LecturaCard.Size = new System.Drawing.Size(335, 150);
-            this.LecturaCard.TabIndex = 1;
-            // 
-            // TemperaturaCard
-            // 
-            this.TemperaturaCard.BackColor = System.Drawing.Color.White;
-            this.TemperaturaCard.BorderRadius = 5;
-            this.TemperaturaCard.BottomSahddow = true;
-            this.TemperaturaCard.color = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.TemperaturaCard.Controls.Add(this.TemperaturaLayout);
-            this.TemperaturaCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TemperaturaCard.LeftSahddow = false;
-            this.TemperaturaCard.Location = new System.Drawing.Point(3, 315);
-            this.TemperaturaCard.Name = "TemperaturaCard";
-            this.TemperaturaCard.RightSahddow = true;
-            this.TemperaturaCard.ShadowDepth = 20;
-            this.TemperaturaCard.Size = new System.Drawing.Size(335, 150);
-            this.TemperaturaCard.TabIndex = 2;
-            // 
-            // VolumenCard
-            // 
-            this.VolumenCard.BackColor = System.Drawing.Color.White;
-            this.VolumenCard.BorderRadius = 5;
-            this.VolumenCard.BottomSahddow = true;
-            this.VolumenCard.color = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.VolumenCard.Controls.Add(this.tableLayoutPanel2);
-            this.VolumenCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VolumenCard.LeftSahddow = false;
-            this.VolumenCard.Location = new System.Drawing.Point(3, 471);
-            this.VolumenCard.Name = "VolumenCard";
-            this.VolumenCard.RightSahddow = true;
-            this.VolumenCard.ShadowDepth = 20;
-            this.VolumenCard.Size = new System.Drawing.Size(335, 151);
-            this.VolumenCard.TabIndex = 3;
-            // 
-            // TicketLayout
-            // 
-            this.TicketLayout.ColumnCount = 1;
-            this.TicketLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TicketLayout.Controls.Add(this.TicketLabel, 0, 0);
-            this.TicketLayout.Controls.Add(this.TicketText, 0, 1);
-            this.TicketLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TicketLayout.Location = new System.Drawing.Point(0, 5);
-            this.TicketLayout.Name = "TicketLayout";
-            this.TicketLayout.RowCount = 2;
-            this.TicketLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TicketLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TicketLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TicketLayout.Size = new System.Drawing.Size(333, 142);
-            this.TicketLayout.TabIndex = 1;
-            // 
-            // TicketLabel
-            // 
-            this.TicketLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
-            this.TicketLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TicketLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TicketLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
-            this.TicketLabel.Location = new System.Drawing.Point(10, 10);
-            this.TicketLabel.Margin = new System.Windows.Forms.Padding(10);
-            this.TicketLabel.Name = "TicketLabel";
-            this.TicketLabel.Size = new System.Drawing.Size(313, 51);
-            this.TicketLabel.TabIndex = 0;
-            this.TicketLabel.Text = "Ticket";
-            this.TicketLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TicketText
-            // 
-            this.TicketText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TicketText.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TicketText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
-            this.TicketText.Location = new System.Drawing.Point(3, 71);
-            this.TicketText.Name = "TicketText";
-            this.TicketText.Size = new System.Drawing.Size(327, 71);
-            this.TicketText.TabIndex = 1;
-            this.TicketText.Text = "0";
-            this.TicketText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LecturaLayout
-            // 
-            this.LecturaLayout.ColumnCount = 1;
-            this.LecturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LecturaLayout.Controls.Add(this.LecturaLabel, 0, 0);
-            this.LecturaLayout.Controls.Add(this.LecturaText, 0, 1);
-            this.LecturaLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LecturaLayout.Location = new System.Drawing.Point(0, 5);
-            this.LecturaLayout.Name = "LecturaLayout";
-            this.LecturaLayout.RowCount = 2;
-            this.LecturaLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LecturaLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LecturaLayout.Size = new System.Drawing.Size(333, 142);
-            this.LecturaLayout.TabIndex = 2;
-            // 
-            // LecturaLabel
-            // 
-            this.LecturaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
-            this.LecturaLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LecturaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LecturaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
-            this.LecturaLabel.Location = new System.Drawing.Point(10, 10);
-            this.LecturaLabel.Margin = new System.Windows.Forms.Padding(10);
-            this.LecturaLabel.Name = "LecturaLabel";
-            this.LecturaLabel.Size = new System.Drawing.Size(313, 51);
-            this.LecturaLabel.TabIndex = 0;
-            this.LecturaLabel.Text = "Lectura";
-            this.LecturaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LecturaText
-            // 
-            this.LecturaText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LecturaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LecturaText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
-            this.LecturaText.Location = new System.Drawing.Point(3, 71);
-            this.LecturaText.Name = "LecturaText";
-            this.LecturaText.Size = new System.Drawing.Size(327, 71);
-            this.LecturaText.TabIndex = 1;
-            this.LecturaText.Text = "0";
-            this.LecturaText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TemperaturaLayout
-            // 
-            this.TemperaturaLayout.ColumnCount = 1;
-            this.TemperaturaLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TemperaturaLayout.Controls.Add(this.TemperaturaLabel, 0, 0);
-            this.TemperaturaLayout.Controls.Add(this.TemperaturaText, 0, 1);
-            this.TemperaturaLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TemperaturaLayout.Location = new System.Drawing.Point(0, 5);
-            this.TemperaturaLayout.Name = "TemperaturaLayout";
-            this.TemperaturaLayout.RowCount = 2;
-            this.TemperaturaLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TemperaturaLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TemperaturaLayout.Size = new System.Drawing.Size(333, 142);
-            this.TemperaturaLayout.TabIndex = 3;
-            // 
-            // TemperaturaLabel
-            // 
-            this.TemperaturaLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
-            this.TemperaturaLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TemperaturaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperaturaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
-            this.TemperaturaLabel.Location = new System.Drawing.Point(10, 10);
-            this.TemperaturaLabel.Margin = new System.Windows.Forms.Padding(10);
-            this.TemperaturaLabel.Name = "TemperaturaLabel";
-            this.TemperaturaLabel.Size = new System.Drawing.Size(313, 51);
-            this.TemperaturaLabel.TabIndex = 0;
-            this.TemperaturaLabel.Text = "Temperatura";
-            this.TemperaturaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TemperaturaText
-            // 
-            this.TemperaturaText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TemperaturaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperaturaText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
-            this.TemperaturaText.Location = new System.Drawing.Point(3, 71);
-            this.TemperaturaText.Name = "TemperaturaText";
-            this.TemperaturaText.Size = new System.Drawing.Size(327, 71);
-            this.TemperaturaText.TabIndex = 1;
-            this.TemperaturaText.Text = "0.0";
-            this.TemperaturaText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.VolumenLabel, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.VolumenText, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 5);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(333, 143);
-            this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // VolumenLabel
-            // 
-            this.VolumenLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
-            this.VolumenLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VolumenLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VolumenLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
-            this.VolumenLabel.Location = new System.Drawing.Point(10, 10);
-            this.VolumenLabel.Margin = new System.Windows.Forms.Padding(10);
-            this.VolumenLabel.Name = "VolumenLabel";
-            this.VolumenLabel.Size = new System.Drawing.Size(313, 51);
-            this.VolumenLabel.TabIndex = 0;
-            this.VolumenLabel.Text = "Volumen";
-            this.VolumenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // VolumenText
-            // 
-            this.VolumenText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VolumenText.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VolumenText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
-            this.VolumenText.Location = new System.Drawing.Point(3, 71);
-            this.VolumenText.Name = "VolumenText";
-            this.VolumenText.Size = new System.Drawing.Size(327, 72);
-            this.VolumenText.TabIndex = 1;
-            this.VolumenText.Text = "0.0";
-            this.VolumenText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BottomPanel
             // 
@@ -537,20 +539,6 @@
             this.BottomLayout.Size = new System.Drawing.Size(961, 60);
             this.BottomLayout.TabIndex = 0;
             // 
-            // FechaText
-            // 
-            this.FechaText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
-            this.FechaText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FechaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
-            this.FechaText.Location = new System.Drawing.Point(10, 10);
-            this.FechaText.Margin = new System.Windows.Forms.Padding(10);
-            this.FechaText.Name = "FechaText";
-            this.FechaText.Size = new System.Drawing.Size(460, 40);
-            this.FechaText.TabIndex = 0;
-            this.FechaText.Text = "FechaPlaceHolder";
-            this.FechaText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // HoraText
             // 
             this.HoraText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
@@ -564,6 +552,20 @@
             this.HoraText.TabIndex = 1;
             this.HoraText.Text = "HoraPlaceHolder";
             this.HoraText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FechaText
+            // 
+            this.FechaText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.FechaText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FechaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FechaText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
+            this.FechaText.Location = new System.Drawing.Point(10, 10);
+            this.FechaText.Margin = new System.Windows.Forms.Padding(10);
+            this.FechaText.Name = "FechaText";
+            this.FechaText.Size = new System.Drawing.Size(460, 40);
+            this.FechaText.TabIndex = 0;
+            this.FechaText.Text = "FechaPlaceHolder";
+            this.FechaText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SeparadorPanel
             // 
@@ -606,6 +608,18 @@
             this.LayoutMid.Size = new System.Drawing.Size(961, 547);
             this.LayoutMid.TabIndex = 6;
             // 
+            // GradoText
+            // 
+            this.GradoText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GradoText.Font = new System.Drawing.Font("Microsoft Sans Serif", 96F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GradoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
+            this.GradoText.Location = new System.Drawing.Point(195, 82);
+            this.GradoText.Name = "GradoText";
+            this.GradoText.Size = new System.Drawing.Size(570, 437);
+            this.GradoText.TabIndex = 5;
+            this.GradoText.Text = "0.0";
+            this.GradoText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GradoCard
             // 
             this.GradoCard.BackColor = System.Drawing.Color.White;
@@ -627,24 +641,18 @@
             this.GradoLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GradoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GradoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
-            this.GradoLabel.Location = new System.Drawing.Point(0, 5);
+            this.GradoLabel.Location = new System.Drawing.Point(0, 0);
             this.GradoLabel.Name = "GradoLabel";
-            this.GradoLabel.Size = new System.Drawing.Size(568, 68);
+            this.GradoLabel.Size = new System.Drawing.Size(570, 76);
             this.GradoLabel.TabIndex = 2;
             this.GradoLabel.Text = "Grado";
             this.GradoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // GradoText
+            // TimerHora
             // 
-            this.GradoText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GradoText.Font = new System.Drawing.Font("Microsoft Sans Serif", 96F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GradoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
-            this.GradoText.Location = new System.Drawing.Point(195, 82);
-            this.GradoText.Name = "GradoText";
-            this.GradoText.Size = new System.Drawing.Size(570, 437);
-            this.GradoText.TabIndex = 5;
-            this.GradoText.Text = "0.0";
-            this.GradoText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TimerHora.Enabled = true;
+            this.TimerHora.Interval = 1000;
+            this.TimerHora.Tick += new System.EventHandler(this.TickEvent);
             // 
             // Vista_Cooperado
             // 
@@ -663,26 +671,27 @@
             this.MinimizeBox = false;
             this.Name = "Vista_Cooperado";
             this.Text = "Cooperado";
+            this.Load += new System.EventHandler(this.LoadForm);
             this.TopPanel.ResumeLayout(false);
             this.layoutTop.ResumeLayout(false);
             this.TopLeftPanel.ResumeLayout(false);
-            this.TopRightPanel.ResumeLayout(false);
             this.NombreLayout.ResumeLayout(false);
             this.NombreLayout.PerformLayout();
+            this.TopRightPanel.ResumeLayout(false);
             this.LeftLayout.ResumeLayout(false);
             this.LeftLayout.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.VolumenCard.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.TemperaturaCard.ResumeLayout(false);
+            this.TemperaturaLayout.ResumeLayout(false);
+            this.LecturaCard.ResumeLayout(false);
+            this.LecturaLayout.ResumeLayout(false);
+            this.TicketCard.ResumeLayout(false);
+            this.TicketLayout.ResumeLayout(false);
             this.MiddlePanel.ResumeLayout(false);
             this.LeftPanel.ResumeLayout(false);
             this.LeftSeparatorPanel.ResumeLayout(false);
-            this.TicketCard.ResumeLayout(false);
-            this.LecturaCard.ResumeLayout(false);
-            this.TemperaturaCard.ResumeLayout(false);
-            this.VolumenCard.ResumeLayout(false);
-            this.TicketLayout.ResumeLayout(false);
-            this.LecturaLayout.ResumeLayout(false);
-            this.TemperaturaLayout.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.BottomPanel.ResumeLayout(false);
             this.BottomLayout.ResumeLayout(false);
             this.SeparadorPanel.ResumeLayout(false);
@@ -735,6 +744,7 @@
         public Bunifu.Framework.UI.BunifuCards GradoCard;
         public System.Windows.Forms.Label GradoLabel;
         public System.Windows.Forms.Label GradoText;
+        private System.Windows.Forms.Timer TimerHora;
     }
 }
 

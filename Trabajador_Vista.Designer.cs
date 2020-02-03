@@ -28,34 +28,36 @@
         /// </summary>
         public void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trabajador_Vista));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trabajador_Vista));
             this.MainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.TittleLabel = new System.Windows.Forms.Label();
             this.EstadoLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.EstadoLabel = new System.Windows.Forms.Label();
             this.EstadoText = new System.Windows.Forms.Label();
+            this.EstadoLabel = new System.Windows.Forms.Label();
             this.SecondLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LecturaText = new System.Windows.Forms.Label();
-            this.TicketLabel = new System.Windows.Forms.Label();
             this.TicketText = new System.Windows.Forms.Label();
+            this.LecturaText = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TicketLabel = new System.Windows.Forms.Label();
             this.BotonesLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.IniciarButton = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.MedicionButton = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.CapturarButton = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.RepetirButton = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.RepetirButton = new System.Windows.Forms.Button();
+            this.CapturarButton = new System.Windows.Forms.Button();
+            this.MedicionButton = new System.Windows.Forms.Button();
+            this.IniciarButton = new System.Windows.Forms.Button();
             this.BottomLayout = new System.Windows.Forms.TableLayoutPanel();
             this.DataGridInfo = new System.Windows.Forms.DataGridView();
-            this.GuardarLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.GuardarButton = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Lectura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Temperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Volumen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardarLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.AbortarButton = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.GuardarButton = new System.Windows.Forms.Button();
+            this.Trabajador = new System.ComponentModel.BackgroundWorker();
             this.MainLayout.SuspendLayout();
             this.EstadoLayout.SuspendLayout();
             this.SecondLayout.SuspendLayout();
@@ -115,19 +117,6 @@
             this.EstadoLayout.Size = new System.Drawing.Size(1228, 159);
             this.EstadoLayout.TabIndex = 1;
             // 
-            // EstadoLabel
-            // 
-            this.EstadoLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EstadoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EstadoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(33)))), ((int)(((byte)(7)))));
-            this.EstadoLabel.Location = new System.Drawing.Point(15, 0);
-            this.EstadoLabel.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
-            this.EstadoLabel.Name = "EstadoLabel";
-            this.EstadoLabel.Size = new System.Drawing.Size(1210, 55);
-            this.EstadoLabel.TabIndex = 0;
-            this.EstadoLabel.Text = "Estado del Refractómetro";
-            this.EstadoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // EstadoText
             // 
             this.EstadoText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
@@ -141,6 +130,19 @@
             this.EstadoText.TabIndex = 1;
             this.EstadoText.Text = " ... Esperando Información del Refractómetro";
             this.EstadoText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // EstadoLabel
+            // 
+            this.EstadoLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EstadoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EstadoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(33)))), ((int)(((byte)(7)))));
+            this.EstadoLabel.Location = new System.Drawing.Point(15, 0);
+            this.EstadoLabel.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
+            this.EstadoLabel.Name = "EstadoLabel";
+            this.EstadoLabel.Size = new System.Drawing.Size(1210, 55);
+            this.EstadoLabel.TabIndex = 0;
+            this.EstadoLabel.Text = "Estado del Refractómetro";
+            this.EstadoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SecondLayout
             // 
@@ -162,18 +164,19 @@
             this.SecondLayout.Size = new System.Drawing.Size(1228, 135);
             this.SecondLayout.TabIndex = 2;
             // 
-            // label2
+            // TicketText
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(33)))), ((int)(((byte)(7)))));
-            this.label2.Location = new System.Drawing.Point(15, 5);
-            this.label2.Margin = new System.Windows.Forms.Padding(15, 5, 3, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(596, 50);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Lectura";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TicketText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.TicketText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TicketText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TicketText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
+            this.TicketText.Location = new System.Drawing.Point(619, 70);
+            this.TicketText.Margin = new System.Windows.Forms.Padding(5, 10, 3, 10);
+            this.TicketText.Name = "TicketText";
+            this.TicketText.Size = new System.Drawing.Size(606, 55);
+            this.TicketText.TabIndex = 4;
+            this.TicketText.Text = "1";
+            this.TicketText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LecturaText
             // 
@@ -189,6 +192,19 @@
             this.LecturaText.Text = "1";
             this.LecturaText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(33)))), ((int)(((byte)(7)))));
+            this.label2.Location = new System.Drawing.Point(15, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(15, 5, 3, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(596, 50);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Lectura";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // TicketLabel
             // 
             this.TicketLabel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -200,20 +216,6 @@
             this.TicketLabel.TabIndex = 3;
             this.TicketLabel.Text = "Ticket";
             this.TicketLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // TicketText
-            // 
-            this.TicketText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.TicketText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TicketText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TicketText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
-            this.TicketText.Location = new System.Drawing.Point(619, 70);
-            this.TicketText.Margin = new System.Windows.Forms.Padding(5, 10, 3, 10);
-            this.TicketText.Name = "TicketText";
-            this.TicketText.Size = new System.Drawing.Size(606, 55);
-            this.TicketText.TabIndex = 4;
-            this.TicketText.Text = "1";
-            this.TicketText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BotonesLayout
             // 
@@ -231,113 +233,66 @@
             this.BotonesLayout.Name = "BotonesLayout";
             this.BotonesLayout.RowCount = 1;
             this.BotonesLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.BotonesLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.BotonesLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.BotonesLayout.Size = new System.Drawing.Size(1228, 72);
             this.BotonesLayout.TabIndex = 3;
             // 
-            // IniciarButton
+            // RepetirButton
             // 
-            this.IniciarButton.ActiveBorderThickness = 1;
-            this.IniciarButton.ActiveCornerRadius = 20;
-            this.IniciarButton.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.IniciarButton.ActiveForecolor = System.Drawing.Color.White;
-            this.IniciarButton.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.IniciarButton.BackColor = System.Drawing.Color.White;
-            this.IniciarButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("IniciarButton.BackgroundImage")));
-            this.IniciarButton.ButtonText = "Iniciar";
-            this.IniciarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IniciarButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.IniciarButton.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IniciarButton.ForeColor = System.Drawing.Color.SeaShell;
-            this.IniciarButton.IdleBorderThickness = 1;
-            this.IniciarButton.IdleCornerRadius = 20;
-            this.IniciarButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.IniciarButton.IdleForecolor = System.Drawing.Color.White;
-            this.IniciarButton.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.IniciarButton.Location = new System.Drawing.Point(7, 7);
-            this.IniciarButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.IniciarButton.Name = "IniciarButton";
-            this.IniciarButton.Size = new System.Drawing.Size(293, 58);
-            this.IniciarButton.TabIndex = 0;
-            this.IniciarButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // MedicionButton
-            // 
-            this.MedicionButton.ActiveBorderThickness = 1;
-            this.MedicionButton.ActiveCornerRadius = 20;
-            this.MedicionButton.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.MedicionButton.ActiveForecolor = System.Drawing.Color.White;
-            this.MedicionButton.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.MedicionButton.BackColor = System.Drawing.Color.White;
-            this.MedicionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MedicionButton.BackgroundImage")));
-            this.MedicionButton.ButtonText = "Medicion";
-            this.MedicionButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MedicionButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MedicionButton.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MedicionButton.ForeColor = System.Drawing.Color.SeaShell;
-            this.MedicionButton.IdleBorderThickness = 1;
-            this.MedicionButton.IdleCornerRadius = 20;
-            this.MedicionButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.MedicionButton.IdleForecolor = System.Drawing.Color.White;
-            this.MedicionButton.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.MedicionButton.Location = new System.Drawing.Point(314, 7);
-            this.MedicionButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.MedicionButton.Name = "MedicionButton";
-            this.MedicionButton.Size = new System.Drawing.Size(293, 58);
-            this.MedicionButton.TabIndex = 1;
-            this.MedicionButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RepetirButton.BackColor = System.Drawing.Color.Transparent;
+            this.RepetirButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RepetirButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(247)))));
+            this.RepetirButton.FlatAppearance.BorderSize = 3;
+            this.RepetirButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.RepetirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(116)))), ((int)(((byte)(145)))));
+            this.RepetirButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.RepetirButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RepetirButton.Location = new System.Drawing.Point(931, 10);
+            this.RepetirButton.Margin = new System.Windows.Forms.Padding(10);
+            this.RepetirButton.Name = "RepetirButton";
+            this.RepetirButton.Size = new System.Drawing.Size(287, 52);
+            this.RepetirButton.TabIndex = 7;
+            this.RepetirButton.Text = "Repetir";
+            this.RepetirButton.UseVisualStyleBackColor = false;
+            this.RepetirButton.Click += new System.EventHandler(this.RepetirClick);
             // 
             // CapturarButton
             // 
-            this.CapturarButton.ActiveBorderThickness = 1;
-            this.CapturarButton.ActiveCornerRadius = 20;
-            this.CapturarButton.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.CapturarButton.ActiveForecolor = System.Drawing.Color.White;
-            this.CapturarButton.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.CapturarButton.BackColor = System.Drawing.Color.White;
-            this.CapturarButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CapturarButton.BackgroundImage")));
-            this.CapturarButton.ButtonText = "Capturar Datos";
-            this.CapturarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CapturarButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CapturarButton.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CapturarButton.ForeColor = System.Drawing.Color.SeaShell;
-            this.CapturarButton.IdleBorderThickness = 1;
-            this.CapturarButton.IdleCornerRadius = 20;
-            this.CapturarButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.CapturarButton.IdleForecolor = System.Drawing.Color.White;
-            this.CapturarButton.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.CapturarButton.Location = new System.Drawing.Point(621, 7);
-            this.CapturarButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.CapturarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CapturarButton.Location = new System.Drawing.Point(624, 10);
+            this.CapturarButton.Margin = new System.Windows.Forms.Padding(10);
             this.CapturarButton.Name = "CapturarButton";
-            this.CapturarButton.Size = new System.Drawing.Size(293, 58);
-            this.CapturarButton.TabIndex = 2;
-            this.CapturarButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CapturarButton.Size = new System.Drawing.Size(287, 52);
+            this.CapturarButton.TabIndex = 6;
+            this.CapturarButton.Text = "Capturar";
+            this.CapturarButton.UseVisualStyleBackColor = true;
+            this.CapturarButton.Click += new System.EventHandler(this.CapturarClick);
             // 
-            // RepetirButton
+            // MedicionButton
             // 
-            this.RepetirButton.ActiveBorderThickness = 1;
-            this.RepetirButton.ActiveCornerRadius = 20;
-            this.RepetirButton.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.RepetirButton.ActiveForecolor = System.Drawing.Color.White;
-            this.RepetirButton.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.RepetirButton.BackColor = System.Drawing.Color.White;
-            this.RepetirButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RepetirButton.BackgroundImage")));
-            this.RepetirButton.ButtonText = "Repetir";
-            this.RepetirButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RepetirButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RepetirButton.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RepetirButton.ForeColor = System.Drawing.Color.SeaShell;
-            this.RepetirButton.IdleBorderThickness = 1;
-            this.RepetirButton.IdleCornerRadius = 20;
-            this.RepetirButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.RepetirButton.IdleForecolor = System.Drawing.Color.White;
-            this.RepetirButton.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.RepetirButton.Location = new System.Drawing.Point(928, 7);
-            this.RepetirButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.RepetirButton.Name = "RepetirButton";
-            this.RepetirButton.Size = new System.Drawing.Size(293, 58);
-            this.RepetirButton.TabIndex = 3;
-            this.RepetirButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MedicionButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MedicionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MedicionButton.Location = new System.Drawing.Point(317, 10);
+            this.MedicionButton.Margin = new System.Windows.Forms.Padding(10);
+            this.MedicionButton.Name = "MedicionButton";
+            this.MedicionButton.Size = new System.Drawing.Size(287, 52);
+            this.MedicionButton.TabIndex = 5;
+            this.MedicionButton.Text = "Mediciones";
+            this.MedicionButton.UseVisualStyleBackColor = true;
+            this.MedicionButton.Click += new System.EventHandler(this.MedicionClick);
+            // 
+            // IniciarButton
+            // 
+            this.IniciarButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.IniciarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IniciarButton.Location = new System.Drawing.Point(10, 10);
+            this.IniciarButton.Margin = new System.Windows.Forms.Padding(10);
+            this.IniciarButton.Name = "IniciarButton";
+            this.IniciarButton.Size = new System.Drawing.Size(287, 52);
+            this.IniciarButton.TabIndex = 4;
+            this.IniciarButton.Text = "Iniciar";
+            this.IniciarButton.UseVisualStyleBackColor = true;
             // 
             // BottomLayout
             // 
@@ -401,47 +356,6 @@
             this.DataGridInfo.Size = new System.Drawing.Size(1066, 265);
             this.DataGridInfo.TabIndex = 0;
             // 
-            // GuardarLayout
-            // 
-            this.GuardarLayout.ColumnCount = 1;
-            this.GuardarLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.GuardarLayout.Controls.Add(this.GuardarButton, 0, 1);
-            this.GuardarLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GuardarLayout.Location = new System.Drawing.Point(1075, 3);
-            this.GuardarLayout.Name = "GuardarLayout";
-            this.GuardarLayout.RowCount = 3;
-            this.GuardarLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.GuardarLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.GuardarLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.GuardarLayout.Size = new System.Drawing.Size(150, 277);
-            this.GuardarLayout.TabIndex = 1;
-            // 
-            // GuardarButton
-            // 
-            this.GuardarButton.ActiveBorderThickness = 1;
-            this.GuardarButton.ActiveCornerRadius = 20;
-            this.GuardarButton.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.GuardarButton.ActiveForecolor = System.Drawing.SystemColors.Window;
-            this.GuardarButton.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
-            this.GuardarButton.BackColor = System.Drawing.Color.White;
-            this.GuardarButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GuardarButton.BackgroundImage")));
-            this.GuardarButton.ButtonText = "Guardar";
-            this.GuardarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GuardarButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GuardarButton.Font = new System.Drawing.Font("Century Gothic", 16.2F);
-            this.GuardarButton.ForeColor = System.Drawing.Color.SeaShell;
-            this.GuardarButton.IdleBorderThickness = 1;
-            this.GuardarButton.IdleCornerRadius = 20;
-            this.GuardarButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.GuardarButton.IdleForecolor = System.Drawing.Color.White;
-            this.GuardarButton.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.GuardarButton.Location = new System.Drawing.Point(7, 99);
-            this.GuardarButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.GuardarButton.Name = "GuardarButton";
-            this.GuardarButton.Size = new System.Drawing.Size(136, 78);
-            this.GuardarButton.TabIndex = 0;
-            this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Lectura
             // 
             this.Lectura.HeaderText = "Lectura";
@@ -472,6 +386,68 @@
             this.Estado.MinimumWidth = 6;
             this.Estado.Name = "Estado";
             // 
+            // GuardarLayout
+            // 
+            this.GuardarLayout.ColumnCount = 1;
+            this.GuardarLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.GuardarLayout.Controls.Add(this.AbortarButton, 0, 2);
+            this.GuardarLayout.Controls.Add(this.GuardarButton, 0, 0);
+            this.GuardarLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GuardarLayout.Location = new System.Drawing.Point(1075, 3);
+            this.GuardarLayout.Name = "GuardarLayout";
+            this.GuardarLayout.RowCount = 3;
+            this.GuardarLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.GuardarLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.GuardarLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.GuardarLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.GuardarLayout.Size = new System.Drawing.Size(150, 277);
+            this.GuardarLayout.TabIndex = 1;
+            // 
+            // AbortarButton
+            // 
+            this.AbortarButton.ActiveBorderThickness = 1;
+            this.AbortarButton.ActiveCornerRadius = 20;
+            this.AbortarButton.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
+            this.AbortarButton.ActiveForecolor = System.Drawing.SystemColors.Window;
+            this.AbortarButton.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(166)))), ((int)(((byte)(207)))));
+            this.AbortarButton.BackColor = System.Drawing.Color.White;
+            this.AbortarButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AbortarButton.BackgroundImage")));
+            this.AbortarButton.ButtonText = "Abortar";
+            this.AbortarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AbortarButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AbortarButton.Font = new System.Drawing.Font("Century Gothic", 16.2F);
+            this.AbortarButton.ForeColor = System.Drawing.Color.SeaShell;
+            this.AbortarButton.IdleBorderThickness = 1;
+            this.AbortarButton.IdleCornerRadius = 20;
+            this.AbortarButton.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
+            this.AbortarButton.IdleForecolor = System.Drawing.Color.White;
+            this.AbortarButton.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
+            this.AbortarButton.Location = new System.Drawing.Point(7, 191);
+            this.AbortarButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.AbortarButton.Name = "AbortarButton";
+            this.AbortarButton.Size = new System.Drawing.Size(136, 79);
+            this.AbortarButton.TabIndex = 2;
+            this.AbortarButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AbortarButton.Click += new System.EventHandler(this.AbortarClick);
+            // 
+            // GuardarButton
+            // 
+            this.GuardarButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuardarButton.Location = new System.Drawing.Point(10, 10);
+            this.GuardarButton.Margin = new System.Windows.Forms.Padding(10);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(130, 72);
+            this.GuardarButton.TabIndex = 3;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarClick);
+            // 
+            // Trabajador
+            // 
+            this.Trabajador.WorkerSupportsCancellation = true;
+            this.Trabajador.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Loop_Trabajo);
+            // 
             // Trabajador_Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -482,6 +458,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Trabajador_Vista";
             this.Text = "Trabajador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Cerrando);
             this.Load += new System.EventHandler(this.Load_Refracto);
             this.MainLayout.ResumeLayout(false);
             this.EstadoLayout.ResumeLayout(false);
@@ -507,19 +484,21 @@
         public System.Windows.Forms.Label TicketText;
         public System.Windows.Forms.Label TicketLabel;
         public System.Windows.Forms.TableLayoutPanel BotonesLayout;
-        public Bunifu.Framework.UI.BunifuThinButton2 IniciarButton;
-        public Bunifu.Framework.UI.BunifuThinButton2 MedicionButton;
-        public Bunifu.Framework.UI.BunifuThinButton2 RepetirButton;
-        public Bunifu.Framework.UI.BunifuThinButton2 CapturarButton;
         public System.Windows.Forms.TableLayoutPanel BottomLayout;
         public System.Windows.Forms.DataGridView DataGridInfo;
         public System.Windows.Forms.TableLayoutPanel GuardarLayout;
-        public Bunifu.Framework.UI.BunifuThinButton2 GuardarButton;
         public System.Windows.Forms.DataGridViewTextBoxColumn Lectura;
         public System.Windows.Forms.DataGridViewTextBoxColumn Grado;
         public System.Windows.Forms.DataGridViewTextBoxColumn Temperatura;
         public System.Windows.Forms.DataGridViewTextBoxColumn Volumen;
         public System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        public Bunifu.Framework.UI.BunifuThinButton2 AbortarButton;
+        public System.Windows.Forms.Button MedicionButton;
+        public System.Windows.Forms.Button IniciarButton;
+        public System.Windows.Forms.Button RepetirButton;
+        public System.Windows.Forms.Button CapturarButton;
+        public System.Windows.Forms.Button GuardarButton;
+        private System.ComponentModel.BackgroundWorker Trabajador;
     }
 
 }

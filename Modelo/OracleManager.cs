@@ -11,7 +11,10 @@ namespace Romana_AppVendimia.Modelo
 {
     public static class OracleManager
     {
-        private readonly static string ConexionString = "";
+        private readonly static string ConexionString = "Data Source = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 172.16.16.240)(PORT = 1521))) " +
+                                "(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = desa.capel.cl))); User Id = usr_prod; " +
+                                "Password = usrprod;";
+
         private readonly static string PathLog = @"C:/ROMANA/REFRACTO/LOG/log.txt";
 
         public static void SetConfiguracionDePuerto(int ID_Planta, int TipoProceso)
@@ -24,7 +27,8 @@ namespace Romana_AppVendimia.Modelo
                     EscribirEnLog("Conexión a Oracle Exitosa.");
                     using (var command = conexion.CreateCommand())
                     {
-                        command.CommandText = "";
+                        command.CommandText = "Select Nombre_Puerto,byte, paridad,databits,observacion " +
+                            "from cooper_adm.parametro where ID_Planta = "+ID_Planta+" and ID_Tipo ="+TipoProceso;
                         command.CommandType = System.Data.CommandType.Text;
                         var dr = command.ExecuteReader();
                         while (dr.Read())
