@@ -1,7 +1,6 @@
 ﻿using Romana_AppVendimia.Modelo;
 using System;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Romana_AppVendimia
@@ -15,24 +14,29 @@ namespace Romana_AppVendimia
         private bool RecursosLiberados = false;
         public Session _MarcasUsuario;
 
+        #region Prueba
+        private string strBufferIn = string.Empty;
+        private string strBufferOut = string.Empty;
+
+
+        #endregion
+
         public Trabajador_Vista()
         {
             InitializeComponent();
+                
             _observador = new MonitorArchivos(this,Cooperado);
             CheckForIllegalCrossThreadCalls = false;
             SettingUI();
             _observador.Run();
-            //Trabajador.RunWorkerAsync();
-
+            SQliteManager.CheckDataBase();
             //Creamos la sesion
             _MarcasUsuario = new Session();
             _observador.InsertarProceso_Planta(_MarcasUsuario);
             OracleManager.SetConfiguracionDePuerto(_MarcasUsuario.Id_Planta,_MarcasUsuario.Tipo_Proceso);
             _portManager = new SerialPortManager();
-            
             //Configurar la sesion cuando se abra maximizado 
-            Configurar_Sesion();
-
+            //Configurar_Sesion();
         }
 
         //Inicializa la sesion con ID_Ticket, recepcion, planta y cooperado
@@ -41,8 +45,10 @@ namespace Romana_AppVendimia
             SQliteManager.Configurar_Session(_MarcasUsuario);
             Cooperado.CooperadoINFO.Text = "Nombre Cooperado: " + _MarcasUsuario.Nombre_Cooperado;
             Cooperado.PlantaINFO.Text = "Planta: "+_MarcasUsuario.Nombre_Planta;
+            Cooperado.RutInfo.Text = "R.U.T: "+_MarcasUsuario.RUT_Cooperado;
             Cooperado.TicketText.Text = _MarcasUsuario.Id_Ticket.ToString();
             TicketText.Text = _MarcasUsuario.Id_Ticket.ToString();
+            SQliteManager.CambiarEstado_Data(2, _MarcasUsuario);
         }
 
         private void Load_Refracto(object sender, EventArgs e)
@@ -52,15 +58,18 @@ namespace Romana_AppVendimia
 
         void Setting_Monitores()
         {
-
-            Rectangle bounds = screens[1].Bounds;
+            Rectangle bounds;
+            if (screens.Length > 1)
+                bounds = screens[1].Bounds;
+            else
+                bounds = screens[0].Bounds;
             Cooperado.SetBounds(bounds.X,bounds.Y,1200,1200);
             Cooperado.StartPosition = FormStartPosition.Manual;
             Cooperado.Show();
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Cooperado.WindowState = FormWindowState.Maximized;
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Minimized;
 
         }
 
@@ -132,7 +141,8 @@ namespace Romana_AppVendimia
             if (resultado == DialogResult.OK)
             {
                 _MarcasUsuario.Clear_Session();
-                WindowState = FormWindowState.Minimized;
+                Limpiar_UI();
+                SQliteManager.CambiarEstado_App(4);
             }
         }
 
@@ -169,16 +179,44 @@ namespace Romana_AppVendimia
             //_portManager.SetearGrado(_MarcasUsuario);
             _observador.LeerArchivoMediciones(@"C:/ROMANA/REFRACTO/mediciones.txt", _MarcasUsuario);
             LlenarGrilla();
+            if (_MarcasUsuario.Intento >= 3)
+            {
+                CapturarButton.Enabled = false;
+                RepetirButton.Enabled = false;
+            }
         }
 
         private void GuardarClick(object sender, EventArgs e)
         {
-            ScreenManager.TomarPantallazo(_MarcasUsuario);
-            SQliteManager.InsertarDatos(_MarcasUsuario);
-            DataGridInfo.Rows.Clear();
+            InsertarEnBasesDeDatos(_MarcasUsuario);
             _MarcasUsuario.Clear_Session();
             _observador.Intentos_Session = 0;
             _observador.EscribirPalabra_Archivo('F', @"C:/ROMANA/REFRACTO/ENVIO.txt");
+            Limpiar_UI();
+            MessageBox.Show("Los datos se han guardado con exito en la base de datos.","Exito",
+                MessageBoxButtons.OK,MessageBoxIcon.Information);
+            SQliteManager.CambiarEstado_App(3);
+        }
+
+        private void Limpiar_UI()
+        {
+            #region Area de Cooperado
+            Cooperado.TicketText.Text = "0";
+            Cooperado.LecturaText.Text = "0";
+            Cooperado.TemperaturaText.Text = "0.0";
+            Cooperado.VolumenText.Text = "0.0";
+            Cooperado.GradoText.Text = "0.0";
+            Cooperado.RutInfo.Text = "RUT: No hay Información";
+            Cooperado.PlantaINFO.Text = "Planta: No hay Información";
+            Cooperado.CooperadoINFO.Text = "Cooperado: No hay Información";
+            #endregion
+
+            #region Area de Trabajador
+            LecturaText.Text = "1";
+            TicketText.Text = "1";
+            DataGridInfo.Rows.Clear();
+            #endregion
+        
         }
 
         public void LlenarGrilla()
@@ -194,8 +232,9 @@ namespace Romana_AppVendimia
         {
             if (_MarcasUsuario.Intento <= 3)
             {
-                ScreenManager.TomarPantallazo(_MarcasUsuario);
-                SQliteManager.InsertarDatos(_MarcasUsuario);
+                //falta id_Cooperado != RUT
+                InsertarEnBasesDeDatos(_MarcasUsuario);
+                Limpiar_Repeticion();
                 _observador.EscribirPalabra_Archivo('R',@"C:/ROMANA/REFRACTO/ENVIO.txt");
 
             }
@@ -207,21 +246,45 @@ namespace Romana_AppVendimia
             }
         }
 
-        private void Loop_Trabajo(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void Limpiar_Repeticion()
         {
-            while (true) {
-                if (SQliteManager.DebeEjecutarse())
-                {
-                    SQliteManager.CambiarEstado_App(2);
-                    WindowState = FormWindowState.Maximized;
+            Cooperado.GradoText.Text = "00.0";
+            Cooperado.VolumenText.Text = "0.0";
+            Cooperado.TemperaturaText.Text = "0.0";
+            _MarcasUsuario.Volumen = 0;
+            _MarcasUsuario.Temperatura = 0;
+            _MarcasUsuario.Grado = 0;
+        }
 
-                }
-                else
-                {
-                    WindowState = FormWindowState.Minimized;
-                    Thread.Sleep(1000);
-                }
+        private void InsertarEnBasesDeDatos(Session _userSession)
+        {
+            _MarcasUsuario.Hora = DateTime.Now.ToString("HH:mm:ss");
+            _MarcasUsuario.Fecha = DateTime.Now.ToString("dd-MM-yyyy");
+            ScreenManager.TomarPantallazo(_userSession);
+            SQliteManager.InsertarDatos(_userSession);
+            OracleManager.InsertarDatosEnPasarela(_userSession);
+            OracleManager.InsertarFotoRecepcion(_userSession);
+        }
+
+        private void Consultor_Tick(object sender, EventArgs e)
+        {
+            if (SQliteManager.DebeEjecutarse())
+            {
+                SQliteManager.CambiarEstado_App(2);
+                this.WindowState = FormWindowState.Maximized;
+                Configurar_Sesion();
             }
+            if(SQliteManager.DebeMinimizarse())
+            {
+                Limpiar_UI();
+                WindowState = FormWindowState.Minimized;
+                Console.WriteLine("No hay trabajo para realizar.");
+            }
+        }
+
+        private void DataRecibida(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+
         }
     }
 }

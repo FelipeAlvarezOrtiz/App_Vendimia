@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Romana_AppVendimia.Modelo
 {
     public class SerialPortManager
     {
+
         private SerialPort _puertoSerial;
         public Decimal GradoLeido = 0;
         private string valorDuro = string.Empty;

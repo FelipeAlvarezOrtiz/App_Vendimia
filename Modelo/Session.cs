@@ -16,10 +16,11 @@ namespace Romana_AppVendimia.Modelo
         public Decimal Volumen { get; set; }
         public Decimal Grado { get; set; }
         public byte[] Imagen { get; set; }
-        public string Planta { get; set; }
         public int Id_Planta { get; set; }
         public string Operacion { get; set; }
         public int Tipo_Proceso { get; set; }
+        public string RUT_Cooperado { get; set; }
+        public int ID_Cooperado { get; set; }
 
         public Session()
         {
@@ -49,7 +50,6 @@ namespace Romana_AppVendimia.Modelo
             Volumen = 0;
             Grado = 0;
             Imagen = null;
-            Planta = string.Empty;
             Id_Planta = 0;
             Operacion = string.Empty;
             Nombre_Cooperado = string.Empty;

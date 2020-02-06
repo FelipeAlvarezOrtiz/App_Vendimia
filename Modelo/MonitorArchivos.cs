@@ -196,8 +196,7 @@ namespace Romana_AppVendimia.Modelo
                 _cooperado.VolumenText.Text = _sessionActual.Volumen.ToString();
                 _cooperado.TicketText.Text = _sessionActual.Id_Ticket.ToString();
                 _cooperado.LecturaText.Text = _sessionActual.Intento.ToString();
-
-                
+                _trabajador.GuardarButton.Enabled = true;               
 
             }
             catch (Exception e)
