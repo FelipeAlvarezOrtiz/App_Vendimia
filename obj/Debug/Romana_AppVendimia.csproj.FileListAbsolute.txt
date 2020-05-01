@@ -26,3 +26,38 @@ C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\Oracle.Ma
 C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\System.Data.SQLite.dll
 C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\System.Data.SQLite.xml
 C:\Users\falvarez_ap\Desktop\Proyecto NET\Romana_AppVendimia\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\bin\Debug\Icons\CooperativaLogo.ico
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\bin\Debug\Romana_AppVendimia.exe.config
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\bin\Debug\Romana_AppVendimia.exe
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\bin\Debug\Romana_AppVendimia.pdb
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\bin\Debug\System.Data.SQLite.dll
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\bin\Debug\System.Data.SQLite.xml
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csprojAssemblyReference.cache
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Vista_Cooperado.resources
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Properties.Resources.resources
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Trabajador_Vista.resources
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csproj.GenerateResource.cache
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csproj.CoreCompileInputs.cache
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csproj.CopyComplete
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.exe
+C:\Users\refracto\Desktop\Sistemas\NuevoPLC\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.pdb
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\Icons\CooperativaLogo.ico
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\x64\sqlite.interop.dll
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\x86\sqlite.interop.dll
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\Romana_AppVendimia.exe.config
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\Romana_AppVendimia.exe
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\Romana_AppVendimia.pdb
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\System.Data.SQLite.dll
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\System.Data.SQLite.xml
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csprojAssemblyReference.cache
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Vista_Cooperado.resources
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Properties.Resources.resources
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.Trabajador_Vista.resources
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csproj.GenerateResource.cache
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.csproj.CopyComplete
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.exe
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\Debug\Romana_AppVendimia.pdb

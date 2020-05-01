@@ -6,7 +6,7 @@ namespace Romana_AppVendimia.Modelo
     {
         public int Id_Cooperado { get; set; }
         public string Nombre_Cooperado { get;set; }
-        public int Id_Ticket { get; set; }
+        public int NUM_TICKET { get; set; }
         public int Id_RecepcionUva { get; set; }
         public string Nombre_Planta { get; set; }
         public int Intento { get; set; }
@@ -41,7 +41,7 @@ namespace Romana_AppVendimia.Modelo
         public void Clear_Session()
         {
             Id_Cooperado = 0;
-            Id_Ticket = 0;
+            NUM_TICKET = 0;
             Id_RecepcionUva = 0;
             Intento = 0;
             Temperatura = 0;

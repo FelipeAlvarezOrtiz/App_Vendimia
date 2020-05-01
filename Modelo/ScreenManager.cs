@@ -18,8 +18,16 @@ namespace Romana_AppVendimia.Modelo
 
         public static void EscribirEnLog(string Texto)
         {
-            string[] NuevaLinea = new string[] { DateTime.Now.ToString() + " " + Texto };
-            File.AppendAllLines(PathLog, NuevaLinea);
+
+            try
+            {
+                string[] NuevaLinea = new string[] { DateTime.Now.ToString() + " " + Texto };
+                File.AppendAllLines(PathLog, NuevaLinea);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public static void TomarPantallazo(Session _session)
@@ -45,12 +53,29 @@ namespace Romana_AppVendimia.Modelo
                 }
                 else
                 {
-                    EscribirEnLog("No tiene más de una pantalla conectada. Error.");
+
+                    Rectangle bounds = Pantallas[0].Bounds;
+                    var ScreenShot = new Bitmap(bounds.Width, bounds.Height,
+                                System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                    var gfxScreenShot = Graphics.FromImage(ScreenShot);
+                    gfxScreenShot.CopyFromScreen(
+                                                bounds.X,
+                                                bounds.Y,
+                                                0,
+                                                0,
+                                                bounds.Size,
+                                                CopyPixelOperation.SourceCopy);
+                    ScreenShot.Save(PathScreens + "Guardado.png", ImageFormat.Png);
+                    _session.Imagen = ObtenerBytes_Imagen(PathScreens + "Guardado.png");
                 }
             }
             else
             {
                 EscribirEnLog("No existe la Carpeta pantallazos en el disco local.");
+                MessageBox.Show("Debe crear la carpeta para la foto de la Segunda Pantalla, " +
+                    "notifique al Area Técnica.","Información",MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
             }
         }
 

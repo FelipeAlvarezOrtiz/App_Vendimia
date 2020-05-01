@@ -59,7 +59,7 @@
             this.AbortarButton = new Bunifu.Framework.UI.BunifuThinButton2();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.TimerConsultor = new System.Windows.Forms.Timer(this.components);
-            this.SerialPort = new System.IO.Ports.SerialPort(this.components);
+            this.PuertoSerial = new System.IO.Ports.SerialPort(this.components);
             this.MainLayout.SuspendLayout();
             this.EstadoLayout.SuspendLayout();
             this.SecondLayout.SuspendLayout();
@@ -451,10 +451,14 @@
             this.TimerConsultor.Interval = 1000;
             this.TimerConsultor.Tick += new System.EventHandler(this.Consultor_Tick);
             // 
-            // SerialPort
+            // PuertoSerial
             // 
-            this.SerialPort.PortName = "COM2";
-            this.SerialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.DataRecibida);
+            this.PuertoSerial.DiscardNull = true;
+            this.PuertoSerial.DtrEnable = true;
+            this.PuertoSerial.PortName = "COM2";
+            this.PuertoSerial.RtsEnable = true;
+            this.PuertoSerial.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.ErrorRecibido);
+            this.PuertoSerial.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.DataRecibida);
             // 
             // Trabajador_Vista
             // 
@@ -507,7 +511,7 @@
         public System.Windows.Forms.Button CapturarButton;
         public System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Timer TimerConsultor;
-        private System.IO.Ports.SerialPort SerialPort;
+        private System.IO.Ports.SerialPort PuertoSerial;
     }
 
 }

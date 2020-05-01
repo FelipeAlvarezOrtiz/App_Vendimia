@@ -66,7 +66,7 @@ namespace Romana_AppVendimia.Modelo
         {
             switch (_paridadEnArchivo)
             {
-                case "e":
+                case "Even":
                     return Parity.Even;
                 case "None":
                     return Parity.None;

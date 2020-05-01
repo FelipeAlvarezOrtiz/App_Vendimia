@@ -109,8 +109,8 @@
             // layoutTop
             // 
             this.layoutTop.ColumnCount = 2;
-            this.layoutTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.54546F));
-            this.layoutTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.45454F));
+            this.layoutTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.59484F));
+            this.layoutTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.40516F));
             this.layoutTop.Controls.Add(this.TopLeftPanel, 0, 0);
             this.layoutTop.Controls.Add(this.TopRightPanel, 1, 0);
             this.layoutTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -127,7 +127,7 @@
             this.TopLeftPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TopLeftPanel.Location = new System.Drawing.Point(3, 3);
             this.TopLeftPanel.Name = "TopLeftPanel";
-            this.TopLeftPanel.Size = new System.Drawing.Size(712, 102);
+            this.TopLeftPanel.Size = new System.Drawing.Size(819, 102);
             this.TopLeftPanel.TabIndex = 0;
             // 
             // NombreLayout
@@ -139,10 +139,10 @@
             this.NombreLayout.Location = new System.Drawing.Point(0, 0);
             this.NombreLayout.Name = "NombreLayout";
             this.NombreLayout.RowCount = 3;
-            this.NombreLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.69136F));
-            this.NombreLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.64198F));
-            this.NombreLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.NombreLayout.Size = new System.Drawing.Size(712, 102);
+            this.NombreLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.823529F));
+            this.NombreLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.35294F));
+            this.NombreLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.843137F));
+            this.NombreLayout.Size = new System.Drawing.Size(819, 102);
             this.NombreLayout.TabIndex = 0;
             // 
             // CooperadoINFO
@@ -151,10 +151,10 @@
             this.CooperadoINFO.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CooperadoINFO.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CooperadoINFO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.CooperadoINFO.Location = new System.Drawing.Point(15, 25);
+            this.CooperadoINFO.Location = new System.Drawing.Point(15, 9);
             this.CooperadoINFO.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
             this.CooperadoINFO.Name = "CooperadoINFO";
-            this.CooperadoINFO.Size = new System.Drawing.Size(694, 59);
+            this.CooperadoINFO.Size = new System.Drawing.Size(801, 84);
             this.CooperadoINFO.TabIndex = 0;
             this.CooperadoINFO.Text = "Cooperado: No hay Información";
             this.CooperadoINFO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,9 +163,9 @@
             // 
             this.TopRightPanel.Controls.Add(this.LeftLayout);
             this.TopRightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TopRightPanel.Location = new System.Drawing.Point(721, 3);
+            this.TopRightPanel.Location = new System.Drawing.Point(828, 3);
             this.TopRightPanel.Name = "TopRightPanel";
-            this.TopRightPanel.Size = new System.Drawing.Size(594, 102);
+            this.TopRightPanel.Size = new System.Drawing.Size(487, 102);
             this.TopRightPanel.TabIndex = 1;
             // 
             // LeftLayout
@@ -181,7 +181,7 @@
             this.LeftLayout.RowCount = 2;
             this.LeftLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.LeftLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LeftLayout.Size = new System.Drawing.Size(594, 102);
+            this.LeftLayout.Size = new System.Drawing.Size(487, 102);
             this.LeftLayout.TabIndex = 0;
             // 
             // PlantaINFO
@@ -193,7 +193,7 @@
             this.PlantaINFO.Location = new System.Drawing.Point(3, 51);
             this.PlantaINFO.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.PlantaINFO.Name = "PlantaINFO";
-            this.PlantaINFO.Size = new System.Drawing.Size(576, 51);
+            this.PlantaINFO.Size = new System.Drawing.Size(469, 51);
             this.PlantaINFO.TabIndex = 2;
             this.PlantaINFO.Text = "Planta: No Hay Información";
             this.PlantaINFO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -207,7 +207,7 @@
             this.RutInfo.Location = new System.Drawing.Point(3, 0);
             this.RutInfo.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.RutInfo.Name = "RutInfo";
-            this.RutInfo.Size = new System.Drawing.Size(576, 51);
+            this.RutInfo.Size = new System.Drawing.Size(469, 51);
             this.RutInfo.TabIndex = 1;
             this.RutInfo.Text = "RUT: No Hay Información";
             this.RutInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -593,9 +593,9 @@
             // LayoutMid
             // 
             this.LayoutMid.ColumnCount = 3;
-            this.LayoutMid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.LayoutMid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.LayoutMid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.LayoutMid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.LayoutMid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.LayoutMid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.LayoutMid.Controls.Add(this.GradoText, 1, 1);
             this.LayoutMid.Controls.Add(this.GradoCard, 1, 0);
             this.LayoutMid.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -611,11 +611,11 @@
             // GradoText
             // 
             this.GradoText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GradoText.Font = new System.Drawing.Font("Microsoft Sans Serif", 96F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GradoText.Font = new System.Drawing.Font("Microsoft Sans Serif", 225F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GradoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
-            this.GradoText.Location = new System.Drawing.Point(195, 82);
+            this.GradoText.Location = new System.Drawing.Point(51, 82);
             this.GradoText.Name = "GradoText";
-            this.GradoText.Size = new System.Drawing.Size(570, 437);
+            this.GradoText.Size = new System.Drawing.Size(858, 437);
             this.GradoText.TabIndex = 5;
             this.GradoText.Text = "0.0";
             this.GradoText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -629,11 +629,11 @@
             this.GradoCard.Controls.Add(this.GradoLabel);
             this.GradoCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GradoCard.LeftSahddow = false;
-            this.GradoCard.Location = new System.Drawing.Point(195, 3);
+            this.GradoCard.Location = new System.Drawing.Point(51, 3);
             this.GradoCard.Name = "GradoCard";
             this.GradoCard.RightSahddow = true;
             this.GradoCard.ShadowDepth = 20;
-            this.GradoCard.Size = new System.Drawing.Size(570, 76);
+            this.GradoCard.Size = new System.Drawing.Size(858, 76);
             this.GradoCard.TabIndex = 0;
             // 
             // GradoLabel
@@ -643,7 +643,7 @@
             this.GradoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(14)))), ((int)(((byte)(18)))));
             this.GradoLabel.Location = new System.Drawing.Point(0, 0);
             this.GradoLabel.Name = "GradoLabel";
-            this.GradoLabel.Size = new System.Drawing.Size(570, 76);
+            this.GradoLabel.Size = new System.Drawing.Size(858, 76);
             this.GradoLabel.TabIndex = 2;
             this.GradoLabel.Text = "Grado";
             this.GradoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -671,6 +671,7 @@
             this.MinimizeBox = false;
             this.Name = "Vista_Cooperado";
             this.Text = "Cooperado";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Vista_Cooperado_FormClosing);
             this.Load += new System.EventHandler(this.LoadForm);
             this.TopPanel.ResumeLayout(false);
             this.layoutTop.ResumeLayout(false);

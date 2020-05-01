@@ -1,0 +1,4 @@
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\x64\Debug\Romana_AppVendimia.Vista_Cooperado.resources
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\x64\Debug\Romana_AppVendimia.Properties.Resources.resources
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\x64\Debug\Romana_AppVendimia.Trabajador_Vista.resources
+C:\Users\falvarez_ap\Desktop\PLC_FINAL\Romana_AppVendimia\obj\x64\Debug\Romana_AppVendimia.csproj.GenerateResource.cache

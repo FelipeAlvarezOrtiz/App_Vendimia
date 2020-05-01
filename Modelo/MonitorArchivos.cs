@@ -14,6 +14,9 @@ namespace Romana_AppVendimia.Modelo
         D = 4,
         E = 5,
         F = 6,
+        G = 7,
+        H = 8,
+        ERROR = 9,
     }
 
     [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
@@ -65,7 +68,7 @@ namespace Romana_AppVendimia.Modelo
                 if (_estadoPLC.CompareTo('A') == 0 && estadoActual != EstadoPLC.A)
                 {
                     estadoActual = EstadoPLC.A;
-                    _trabajador.EstadoText.Text = "EN ESPERA COMPLETAR NIVEL (5 LTS.)";
+                    _trabajador.EstadoText.Text = "EN ESPERA COMPLETAR NIVEL ("+ ObtenerLitrosPrimerEventoDePlanta(ConfirmarPlanta())+")";
                     _trabajador.CapturarButton.Enabled = false;
                     _trabajador.MedicionButton.Enabled = false;
                     _trabajador.RepetirButton.Enabled = false;
@@ -83,7 +86,7 @@ namespace Romana_AppVendimia.Modelo
                 if (_estadoPLC.CompareTo('C') == 0 && estadoActual != EstadoPLC.C)
                 {
                     estadoActual = EstadoPLC.C;
-                    _trabajador.EstadoText.Text = "VALVULA SALIDA SE CIERRA PARA COMPLETAR 7 LTS. MEDICIÓN.";
+                    _trabajador.EstadoText.Text = "VALVULA SALIDA SE CIERRA PARA COMPLETAR "+ObtenerLitrosSegundoEventoDePlanta(ConfirmarPlanta())+" MEDICIÓN.";
                     _trabajador.CapturarButton.Enabled = false;
                     _trabajador.MedicionButton.Enabled = false;
                     _trabajador.RepetirButton.Enabled = false;
@@ -92,7 +95,7 @@ namespace Romana_AppVendimia.Modelo
                 if (_estadoPLC.CompareTo('D') == 0 && estadoActual != EstadoPLC.D)
                 {
                     estadoActual = EstadoPLC.D;
-                    _trabajador.EstadoText.Text = "SISTEMA LISTO PARA ADQUISICIÓN CONTIENE 7 LTS. O MÁS";
+                    _trabajador.EstadoText.Text = "SISTEMA LISTO PARA ADQUISICIÓN CONTIENE " + ObtenerLitrosSegundoEventoDePlanta(ConfirmarPlanta()) + " O MÁS";
                     _trabajador.CapturarButton.Enabled = false;
                     _trabajador.MedicionButton.Enabled = true;
                     _trabajador.RepetirButton.Enabled = false;
@@ -114,7 +117,25 @@ namespace Romana_AppVendimia.Modelo
                     _trabajador.EstadoText.Text = "SISTEMA LISTO PARA RECIBIR TÉRMINO DE ADQUISICIÓN.";
                     _trabajador.CapturarButton.Enabled = true;
                     _trabajador.MedicionButton.Enabled = false;
-                    _trabajador.RepetirButton.Enabled = true;
+                    _trabajador.RepetirButton.Enabled = false;
+                    _trabajador.GuardarButton.Enabled = false;
+                }
+                if (_estadoPLC.CompareTo('G') == 0 && estadoActual != EstadoPLC.G)
+                {
+                    estadoActual = EstadoPLC.G;
+                    _trabajador.EstadoText.Text = "VALVULA DE SALIDA ESPERANDO VACIADO";
+                    _trabajador.CapturarButton.Enabled = false;
+                    _trabajador.MedicionButton.Enabled = false;
+                    _trabajador.RepetirButton.Enabled = false;
+                    _trabajador.GuardarButton.Enabled = false;
+                }
+                if (_estadoPLC.CompareTo('H') == 0 && estadoActual != EstadoPLC.H)
+                {
+                    estadoActual = EstadoPLC.H;
+                    _trabajador.EstadoText.Text = "APERTURA Y CIERRE DE VALVULAS DE LAVADO";
+                    _trabajador.CapturarButton.Enabled = false;
+                    _trabajador.MedicionButton.Enabled = false;
+                    _trabajador.RepetirButton.Enabled = false;
                     _trabajador.GuardarButton.Enabled = false;
                 }
             }
@@ -134,8 +155,15 @@ namespace Romana_AppVendimia.Modelo
 
         private void EscribirEnLog(string Texto)
         {
-            string[] NuevaLinea = new string[] { DateTime.Now.ToString() + " " + Texto };
-            File.AppendAllLines(PathLog,NuevaLinea);
+            try
+            {
+                string[] NuevaLinea = new string[] { DateTime.Now.ToString() + " " + Texto };
+                File.AppendAllLines(PathLog, NuevaLinea);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public char LeerPrimerChar_Archivo(string Path)
@@ -152,12 +180,43 @@ namespace Romana_AppVendimia.Modelo
             }
         }
 
+        private int ConfirmarPlanta()
+        {
+            return Convert.ToInt32(File.ReadAllText(PathConfig).Split(';')[0]);
+        }
+
         public void Run()
         {
             _observador.EnableRaisingEvents = true;
             EscribirEnLog("Monitor de Archivos activado.");
         }
 
+        public string ObtenerLitrosPrimerEventoDePlanta(int _idPlanta)
+        {
+            switch (_idPlanta)
+            {
+                case 2:
+                    return "5 LTS.";
+                case 3:
+                    return "3 LTS.";
+                case 10:
+                    return "3 LTS.";
+            }
+            return "5 LTS.";
+        }
+        public string ObtenerLitrosSegundoEventoDePlanta(int _idPlanta)
+        {
+            switch (_idPlanta)
+            {
+                case 2:
+                    return "7 LTS.";
+                case 3:
+                    return "5 LTS.";
+                case 10:
+                    return "5 LTS.";
+            }
+            return "7 LTS.";
+        }
         public void EscribirPalabra_Archivo(char Comando, string Path)
         {
             if (File.Exists(Path))
@@ -177,25 +236,30 @@ namespace Romana_AppVendimia.Modelo
                 DataMediciones.Clear();
                 Intentos_Session++;
                 var Data = File.ReadAllText(Path).Split(';');
-
                 //Falta Ticket
                 /*
                 DataMediciones.Add(Data[1]);
                 DataMediciones.Add(Data[2]);
                 DataMediciones.Add(ObtenerTipoProcedimiento((int)Convert.ToInt32(Data[3])));
                 DataMediciones.Add(Intentos_Session.ToString());*/
-                _sessionActual.Volumen = Convert.ToDecimal(Data[1].Replace(".",","));
-                _sessionActual.Temperatura = (Decimal)Convert.ToDecimal(Data[2].Replace(".",","));
+                _sessionActual.Volumen = Convert.ToDecimal(Data[2].Replace(".",","));
+                _sessionActual.Temperatura = (Decimal)Convert.ToDecimal(Data[1].Replace(".",","));
                 _sessionActual.Operacion = ObtenerTipoProcedimiento(Convert.ToInt32(Data[3]));
                 //Este grado debe eliminarse para reemplazar el real.
-                _sessionActual.Grado = Convert.ToDecimal(Data[0].Replace(".",","));
+                //_sessionActual.Grado = Convert.ToDecimal(Data[0].Replace(".",","));
                 //_sessionActual.Grado = 
                 _sessionActual.Intento = Intentos_Session;
+                if (_sessionActual.Temperatura > 30 || _sessionActual.Temperatura <= 2)
+                {
+                    _sessionActual.Temperatura = 20.5M;
+                }
                 _cooperado.TemperaturaText.Text = _sessionActual.Temperatura.ToString();
                 _cooperado.GradoText.Text = _sessionActual.Grado.ToString();
                 _cooperado.VolumenText.Text = _sessionActual.Volumen.ToString();
-                _cooperado.TicketText.Text = _sessionActual.Id_Ticket.ToString();
+                _cooperado.TicketText.Text = _sessionActual.NUM_TICKET.ToString();
                 _cooperado.LecturaText.Text = _sessionActual.Intento.ToString();
+                _cooperado.GradoText.Text = _sessionActual.Grado.ToString();
+                
                 _trabajador.GuardarButton.Enabled = true;               
 
             }

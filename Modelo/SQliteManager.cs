@@ -7,9 +7,10 @@ namespace Romana_AppVendimia.Modelo
     static class SQliteManager
     {
         #region DB
+
         private readonly static string CreacionDB = "CREATE TABLE \"Refracto_Info\" ("+
 	                                            "\"ID_Recepcion_Uva\"	INTEGER,"+
-	                                            "\"ID_Ticket\"	INTEGER,"+
+	                                            "\"NUM_Ticket\"	INTEGER,"+
 	                                            "\"Nombre_Cooperado\"	TEXT,"+
 	                                            "\"Nombre_Planta\"	TEXT,"+
 	                                            "\"Lectura\"	INTEGER,"+
@@ -23,8 +24,9 @@ namespace Romana_AppVendimia.Modelo
 	                                            "\"Hora\"	TEXT,"+
 	                                            "\"RUT_Cooperado\"	TEXT,"+
 	                                            "\"ID_Cooperado\"	INTEGER,"+
-	                                            "PRIMARY KEY(\"ID_Recepcion_Uva\",\"ID_Ticket\",\"RUT_Cooperado\",\"Lectura\"));";
-        public static string NombreDB = "Refracto.db";
+                                                "\"Tipo_Control\"    INTEGER,"+
+	                                            "PRIMARY KEY(\"ID_Recepcion_Uva\",\"NUM_TICKET\",\"RUT_Cooperado\",\"Lectura\"));";
+        public static string NombreDB = "REFRACTO.db";
         public static string FullPathDB = @"C:/ROMANA/DB/" + NombreDB;
 
         #endregion
@@ -33,8 +35,16 @@ namespace Romana_AppVendimia.Modelo
 
         public static void EscribirEnLog(string Texto)
         {
-            string[] NuevaLinea = new string[] { DateTime.Now.ToString() + " " + Texto };
-            File.AppendAllLines(PathLog, NuevaLinea);
+
+            try
+            {
+                string[] NuevaLinea = new string[] { DateTime.Now.ToString() + " " + Texto };
+                File.AppendAllLines(PathLog, NuevaLinea);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public static bool CheckDataBase()
@@ -78,59 +88,63 @@ namespace Romana_AppVendimia.Modelo
             try
             {
                 //Estado_Data = 3 Guardada
-                if (_session.Intento > 1)
+                //if (_session.Intento > 1)
+                //{
+                using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
+                using (var command = new SQLiteCommand("INSERT INTO LOG_Refracto_Info" +
+                    "(ID_RECEPCION_UVA, NUM_TICKET, Nombre_Cooperado, Nombre_Planta, Lectura, " +
+                    "Temperatura, Volumen, Grado, Estado_Data, ID_planta, Foto, Fecha, Hora,RUT_Cooperado,ID_Cooperado,TIPO_CONTROL)" +
+                    "VALUES(@Recepcion,@Ticket,@NombreCooperado, @NombrePlanta,@Intento," +
+                    "@Tempe,@Volume,@Grado,2,@IdPlanta,@Foto,@Fecha,@Hora,@rutCoop,0,2)", conexion))
                 {
-                    using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
-                    using (var command = new SQLiteCommand("INSERT INTO Refracto_Info(ID_Recepcion_Uva, ID_Ticket, Nombre_Cooperado, Nombre_Planta, Lectura, " +
-                        "Temperatura, Volumen, Grado, Estado_Data, ID_planta, Foto, Fecha, Hora,RUT_Cooperado,ID_Cooperado) VALUES" +
-                        "(@Recepcion,@Ticket,@NombreCooperado, @NombrePlanta,@Intento,@Tempe,@Volume,@Grado,2,@IdPlanta,@Foto,@Fecha,@Hora,@rutCoop,@idCoop)", conexion))
-                    {
-                        conexion.Open();
-                        command.Parameters.Add("@Recepcion", System.Data.DbType.Int32).Value = _session.Id_RecepcionUva;
-                        command.Parameters.Add("@Ticket", System.Data.DbType.Int32).Value = _session.Id_Ticket;
-                        command.Parameters.Add("@NombreCooperado", System.Data.DbType.String).Value = _session.Nombre_Cooperado;
-                        command.Parameters.Add("@NombrePlanta", System.Data.DbType.String).Value = _session.Nombre_Planta;
-                        command.Parameters.Add("@Intento", System.Data.DbType.Int32).Value = _session.Intento;
-                        command.Parameters.Add("@Tempe", System.Data.DbType.Decimal).Value = _session.Temperatura;
-                        command.Parameters.Add("@Volume", System.Data.DbType.Decimal).Value = _session.Volumen;
-                        command.Parameters.Add("@Grado", System.Data.DbType.Decimal).Value = _session.Grado;
-                        command.Parameters.Add("@IdPlanta", System.Data.DbType.Int32).Value = _session.Id_Planta;
-                        command.Parameters.Add("@Foto", System.Data.DbType.Binary, 20).Value = _session.Imagen;
-                        command.Parameters.Add("@Fecha", System.Data.DbType.String).Value = _session.Fecha;
-                        command.Parameters.Add("@Hora", System.Data.DbType.String).Value = _session.Hora;
-                        command.Parameters.Add("@rutCoop", System.Data.DbType.String).Value = _session.RUT_Cooperado;
-                        command.Parameters.Add("@idCoop",System.Data.DbType.Int32).Value = _session.ID_Cooperado;
+                    conexion.Open();
+                    command.Parameters.Add("@Recepcion", System.Data.DbType.Int32).Value = _session.Id_RecepcionUva;
+                    command.Parameters.Add("@Ticket", System.Data.DbType.Int32).Value = _session.NUM_TICKET;
+                    command.Parameters.Add("@NombreCooperado", System.Data.DbType.String).Value = _session.Nombre_Cooperado;
+                    command.Parameters.Add("@NombrePlanta", System.Data.DbType.String).Value = _session.Nombre_Planta;
+                    command.Parameters.Add("@Intento", System.Data.DbType.Int32).Value = _session.Intento;
+                    command.Parameters.Add("@Tempe", System.Data.DbType.Decimal).Value = _session.Temperatura;
+                    command.Parameters.Add("@Volume", System.Data.DbType.Decimal).Value = _session.Volumen;
+                    command.Parameters.Add("@Grado", System.Data.DbType.Decimal).Value = _session.Grado;
+                    command.Parameters.Add("@IdPlanta", System.Data.DbType.Int32).Value = _session.Id_Planta;
+                    command.Parameters.Add("@Foto", System.Data.DbType.Binary, 20).Value = _session.Imagen;
+                    command.Parameters.Add("@Fecha", System.Data.DbType.String).Value = _session.Fecha;
+                    command.Parameters.Add("@Hora", System.Data.DbType.String).Value = _session.Hora;
+                    command.Parameters.Add("@rutCoop", System.Data.DbType.String).Value = _session.RUT_Cooperado;
+                    command.Parameters.Add("@idCoop", System.Data.DbType.Int32).Value = _session.ID_Cooperado;
 
-                        command.ExecuteNonQuery();
-                        conexion.Close();
-                    }
+                    command.ExecuteNonQuery();
+                    conexion.Close();
                 }
-                else
-                {
-                    using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
-                    using (var command = new SQLiteCommand("UPDATE Refracto_Info SET Lectura = @Intento,Temperatura = @Tempe, Volumen = @Volume, " +
-                        "Grado = @Grade, ID_Planta = @IDPlanta, Foto = @Imagen, Fecha = @Fecha, Hora = @Hora WHERE ID_Recepcion_Uva = @ID_Recepcion and ID_Ticket = @Ticket", conexion))
-                    {
-                        conexion.Open();
+                #region CODIGO DESCONTINUADO
+                //}
+                //else
+                //{
+                //    using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
+                //    using (var command = new SQLiteCommand("UPDATE Refracto_Info SET Lectura = @Intento,Temperatura = @Tempe, Volumen = @Volume, " +
+                //        "Grado = @Grade, ID_Planta = @IDPlanta, Foto = @Imagen, Fecha = @Fecha, Hora = @Hora WHERE ID_Recepcion_Uva = @ID_Recepcion and NUM_TICKET = @Ticket", conexion))
+                //    {
+                //        conexion.Open();
 
-                        command.Parameters.Add("@Intento", System.Data.DbType.Int32).Value = _session.Intento;
-                        command.Parameters.Add("@Tempe", System.Data.DbType.Decimal).Value = _session.Temperatura;
-                        command.Parameters.Add("@Volume", System.Data.DbType.Decimal).Value = _session.Volumen;
-                        command.Parameters.Add("@Grade", System.Data.DbType.Decimal).Value = _session.Grado;
-                        command.Parameters.Add("@IDPlanta", System.Data.DbType.Int32).Value = _session.Id_Planta;
-                        command.Parameters.Add("@Imagen", System.Data.DbType.Binary, 20).Value = _session.Imagen;
-                        command.Parameters.Add("@Fecha", System.Data.DbType.String).Value = _session.Fecha;
-                        command.Parameters.Add("@Hora", System.Data.DbType.String).Value = _session.Hora;
+                //        command.Parameters.Add("@Intento", System.Data.DbType.Int32).Value = _session.Intento;
+                //        command.Parameters.Add("@Tempe", System.Data.DbType.Decimal).Value = _session.Temperatura;
+                //        command.Parameters.Add("@Volume", System.Data.DbType.Decimal).Value = _session.Volumen;
+                //        command.Parameters.Add("@Grade", System.Data.DbType.Decimal).Value = _session.Grado;
+                //        command.Parameters.Add("@IDPlanta", System.Data.DbType.Int32).Value = _session.Id_Planta;
+                //        command.Parameters.Add("@Imagen", System.Data.DbType.Binary, 20).Value = _session.Imagen;
+                //        command.Parameters.Add("@Fecha", System.Data.DbType.String).Value = _session.Fecha;
+                //        command.Parameters.Add("@Hora", System.Data.DbType.String).Value = _session.Hora;
 
-                        command.Parameters.Add("@ID_Recepcion", System.Data.DbType.Int32).Value = _session.Id_RecepcionUva;
-                        command.Parameters.Add("@Ticket", System.Data.DbType.Int32).Value = _session.Id_Ticket;
-                        //command.Parameters.Add("@NombreCooperado", System.Data.DbType.String).Value = _session.Nombre_Cooperado;
-                        //command.Parameters.Add("@NombrePlanta", System.Data.DbType.String).Value = _session.Nombre_Planta;
+                //        command.Parameters.Add("@ID_Recepcion", System.Data.DbType.Int32).Value = _session.Id_RecepcionUva;
+                //        command.Parameters.Add("@Ticket", System.Data.DbType.Int32).Value = _session.NUM_TICKET;
+                //        //command.Parameters.Add("@NombreCooperado", System.Data.DbType.String).Value = _session.Nombre_Cooperado;
+                //        //command.Parameters.Add("@NombrePlanta", System.Data.DbType.String).Value = _session.Nombre_Planta;
 
-                        command.ExecuteNonQuery();
-                        conexion.Close();
-                    }
-                }
+                //        command.ExecuteNonQuery();
+                //        conexion.Close();
+                //    }
+                //}
+                #endregion
             }
             catch (Exception e)
             {
@@ -141,7 +155,7 @@ namespace Romana_AppVendimia.Modelo
         public static bool DebeEjecutarse()
         {
             using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
-            using (var command = new SQLiteCommand("Select Estado from Estado_App where Estado = 1;", conexion))
+            using (var command = new SQLiteCommand("Select Estado from ESTADO_APP where Estado = 1;", conexion))
             {
                 try
                 {
@@ -167,10 +181,38 @@ namespace Romana_AppVendimia.Modelo
             }
         }
 
+        public static bool TrabajoEnProceso()
+        {
+            using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
+            using (var command = new SQLiteCommand("Select Estado from ESTADO_APP where Estado = 2;", conexion))
+            {
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+                    var count = Convert.ToInt32(command.ExecuteScalar());
+                    if (count > 0)
+                    {
+                        conexion.Close();
+                        return true;
+                    }
+                    else
+                    {
+                        conexion.Close();
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    EscribirEnLog("Error al intentar consultar en Base de Datos Local." + e.Message);
+                    return false;
+                }
+            }
+        }
         public static bool DebeMinimizarse()
         {
             using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
-            using (var command = new SQLiteCommand("Select Estado from Estado_App where Estado in (0,3,4);", conexion))
+            using (var command = new SQLiteCommand("Select Estado from ESTADO_APP where Estado in (0,3,4);", conexion))
             {
                 try
                 {
@@ -199,7 +241,7 @@ namespace Romana_AppVendimia.Modelo
         public static void Configurar_Session(Session _userSession)
         {
             using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
-            using (var command = new SQLiteCommand("Select ID_Recepcion_UVA, ID_Ticket, Nombre_Cooperado, Nombre_Planta,RUT_Cooperado,ID_Cooperado " +
+            using (var command = new SQLiteCommand("Select ID_Recepcion_UVA, NUM_TICKET, Nombre_Cooperado,Lectura, Nombre_Planta,RUT_Cooperado,ID_Cooperado " +
                                                     "from Refracto_Info where Estado_Data= 1", conexion))
             {
                 try
@@ -210,11 +252,12 @@ namespace Romana_AppVendimia.Modelo
                         while (rdr.Read())
                         {
                             _userSession.Id_RecepcionUva = rdr.GetInt32(0);
-                            _userSession.Id_Ticket = rdr.GetInt32(1);
+                            _userSession.NUM_TICKET = rdr.GetInt32(1);
                             _userSession.Nombre_Cooperado = rdr.GetString(2);
-                            _userSession.Nombre_Planta = rdr.GetString(3);
-                            _userSession.RUT_Cooperado = rdr.GetString(4);
-                            _userSession.ID_Cooperado = rdr.GetInt32(5);
+                            _userSession.Intento = rdr.GetInt32(3);
+                            _userSession.Nombre_Planta = rdr.GetString(4);
+                            _userSession.RUT_Cooperado = rdr.GetString(5);
+                            _userSession.ID_Cooperado = rdr.GetInt32(6);
                         }
                     }
                     conexion.Close();
@@ -230,7 +273,7 @@ namespace Romana_AppVendimia.Modelo
         public static void CambiarEstado_App(int Valor)
         {
             using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
-            using (var command = new SQLiteCommand("Update Estado_App SET Estado = @Status;", conexion))
+            using (var command = new SQLiteCommand("Update ESTADO_APP SET Estado = @Status;", conexion))
             {
                 try
                 {
@@ -252,14 +295,14 @@ namespace Romana_AppVendimia.Modelo
         {
             using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
             using (var command = new SQLiteCommand("Update Refracto_Info SET Estado_Data = @Status WHERE " +
-                                            "ID_Recepcion_Uva = @Recepcion and ID_Ticket=@Ticket", conexion))
+                                            "ID_Recepcion_Uva = @Recepcion and NUM_TICKET=@Ticket", conexion))
             {
                 try
                 {
                     conexion.Open();
                     command.Parameters.Add("@Status", System.Data.DbType.Int32).Value = Valor;
                     command.Parameters.Add("@Recepcion", System.Data.DbType.Int32).Value = _userSession.Id_RecepcionUva;
-                    command.Parameters.Add("@Ticket", System.Data.DbType.Int32).Value = _userSession.Id_Ticket;
+                    command.Parameters.Add("@Ticket", System.Data.DbType.Int32).Value = _userSession.NUM_TICKET;
                     command.ExecuteNonQuery();
                     conexion.Close();
                 }
@@ -267,6 +310,25 @@ namespace Romana_AppVendimia.Modelo
                 {
                     EscribirEnLog("Error al actualizar el estado de la recepción.");
                 }
+            }
+        }
+    
+        public static void EliminarRegistro(int _idRecepcion)
+        {
+            try
+            {
+                using (var conexion = new SQLiteConnection("Data Source=" + FullPathDB + ";Version=3"))
+                using (var command = new SQLiteCommand("DELETE FROM REFRACTO_INFO WHERE ID_RECEPCION_UVA = " + _idRecepcion + "", conexion))
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+                    conexion.Close();
+                }
+            }
+            catch (SQLiteException error)
+            {
+                EscribirEnLog("Error al eliminar el registro con Recepcion : " + _idRecepcion + "." +
+                    "Error :" + error.Message);
             }
         }
     
